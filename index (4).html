@@ -1,0 +1,1898 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CHOSEN — Faith-Rooted Apparel</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Barlow+Condensed:wght@400;500;600;700&family=Barlow:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --cream: #F5F0E8;
+    --warm-white: #FAF8F4;
+    --charcoal: #1C1A17;
+    --deep-brown: #2E2419;
+    --gold: #B8892A;
+    --gold-light: #D4AA50;
+    --rust: #8B3A1A;
+    --stone: #8A8278;
+    --stone-light: #C4BDB4;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--charcoal);
+    color: var(--cream);
+    font-family: 'Barlow', sans-serif;
+    font-weight: 300;
+    overflow-x: hidden;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.25rem 3rem;
+    background: rgba(28, 26, 23, 0.92);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid rgba(184,137,42,0.15);
+  }
+
+  .nav-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.6rem;
+    font-weight: 900;
+    letter-spacing: 0.12em;
+    color: var(--gold);
+    text-decoration: none;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 2.5rem;
+    list-style: none;
+  }
+
+  .nav-links a {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--stone-light);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--gold-light); }
+
+  .nav-cart {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--charcoal);
+    background: var(--gold);
+    padding: 0.55rem 1.4rem;
+    border: none;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+
+  .nav-cart:hover { background: var(--gold-light); }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    position: relative;
+    padding: 8rem 3rem 4rem;
+    overflow: hidden;
+  }
+
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 60% 80% at 65% 50%, rgba(184,137,42,0.06) 0%, transparent 70%),
+      radial-gradient(ellipse 40% 60% at 20% 80%, rgba(139,58,26,0.08) 0%, transparent 60%),
+      var(--charcoal);
+  }
+
+  .hero-cross {
+    position: absolute;
+    right: 8%;
+    top: 50%;
+    transform: translateY(-50%);
+    opacity: 0.04;
+    font-size: 32rem;
+    font-family: 'Playfair Display', serif;
+    font-weight: 900;
+    color: var(--gold);
+    user-select: none;
+    line-height: 1;
+    letter-spacing: -0.05em;
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 680px;
+  }
+
+  .hero-eyebrow {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .hero-eyebrow::before {
+    content: '';
+    display: block;
+    width: 2.5rem;
+    height: 1px;
+    background: var(--gold);
+  }
+
+  .hero-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(4rem, 9vw, 8rem);
+    font-weight: 900;
+    line-height: 0.9;
+    letter-spacing: -0.02em;
+    color: var(--warm-white);
+    margin-bottom: 0.25rem;
+  }
+
+  .hero-title em {
+    font-style: italic;
+    color: var(--gold);
+  }
+
+  .hero-title-sub {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.5rem, 3.5vw, 3rem);
+    font-weight: 700;
+    font-style: italic;
+    color: var(--stone);
+    margin-bottom: 2.5rem;
+    letter-spacing: 0.01em;
+  }
+
+  .hero-verse {
+    font-family: 'Playfair Display', serif;
+    font-size: 1rem;
+    font-style: italic;
+    color: var(--stone-light);
+    margin-bottom: 3rem;
+    padding-left: 1.25rem;
+    border-left: 2px solid var(--gold);
+    line-height: 1.8;
+    max-width: 440px;
+  }
+
+  .hero-verse cite {
+    display: block;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-style: normal;
+    font-size: 0.78rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-top: 0.5rem;
+  }
+
+  .hero-ctas {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .btn-primary {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--charcoal);
+    background: var(--gold);
+    padding: 1rem 2.5rem;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    transition: background 0.2s, transform 0.15s;
+  }
+
+  .btn-primary:hover {
+    background: var(--gold-light);
+    transform: translateY(-1px);
+  }
+
+  .btn-outline {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--cream);
+    background: transparent;
+    padding: 1rem 2.5rem;
+    border: 1px solid rgba(255,255,255,0.25);
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    transition: border-color 0.2s, color 0.2s, transform 0.15s;
+  }
+
+  .btn-outline:hover {
+    border-color: var(--gold);
+    color: var(--gold);
+    transform: translateY(-1px);
+  }
+
+  /* ── MARQUEE ── */
+  .marquee-wrap {
+    overflow: hidden;
+    background: var(--gold);
+    padding: 0.85rem 0;
+    white-space: nowrap;
+  }
+
+  .marquee-track {
+    display: inline-block;
+    animation: marquee 20s linear infinite;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--charcoal);
+  }
+
+  @keyframes marquee {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+
+  /* ── ABOUT STRIP ── */
+  .about-strip {
+    background: var(--deep-brown);
+    padding: 6rem 3rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6rem;
+    align-items: center;
+  }
+
+  .about-text .section-eyebrow {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1.5rem;
+  }
+
+  .about-text h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 4vw, 3.5rem);
+    font-weight: 900;
+    line-height: 1.05;
+    color: var(--warm-white);
+    margin-bottom: 1.75rem;
+  }
+
+  .about-text p {
+    font-size: 1rem;
+    line-height: 1.85;
+    color: var(--stone-light);
+    max-width: 460px;
+    margin-bottom: 1rem;
+  }
+
+  .about-pillars {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+  }
+
+  .pillar {
+    padding: 1.75rem 1.5rem;
+    border: 1px solid rgba(184,137,42,0.2);
+    background: rgba(184,137,42,0.03);
+  }
+
+  .pillar-icon {
+    font-size: 1.5rem;
+    margin-bottom: 0.75rem;
+    color: var(--gold);
+    font-family: 'Playfair Display', serif;
+    font-weight: 900;
+  }
+
+  .pillar h3 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--warm-white);
+    margin-bottom: 0.5rem;
+  }
+
+  .pillar p {
+    font-size: 0.85rem;
+    line-height: 1.7;
+    color: var(--stone);
+  }
+
+  /* ── COLLECTION ── */
+  .collection {
+    padding: 7rem 3rem;
+    background: var(--charcoal);
+  }
+
+  .section-header {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    margin-bottom: 3.5rem;
+  }
+
+  .section-header-left .section-eyebrow {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 0.75rem;
+  }
+
+  .section-header-left h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 900;
+    color: var(--warm-white);
+    line-height: 1.1;
+  }
+
+  .view-all {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: gap 0.2s;
+    white-space: nowrap;
+    margin-bottom: 0.5rem;
+  }
+
+  .view-all:hover { gap: 0.85rem; }
+  .view-all::after { content: '→'; }
+
+  .products-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+  }
+
+  .product-card {
+    cursor: pointer;
+  }
+
+  .product-img {
+    aspect-ratio: 3/4;
+    background: var(--deep-brown);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.35s ease;
+  }
+
+  .product-card:hover .product-img { transform: scale(0.98); }
+
+  .product-placeholder {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    text-align: center;
+    padding: 2rem;
+  }
+
+  .product-symbol {
+    font-family: 'Playfair Display', serif;
+    font-size: 3.5rem;
+    font-weight: 900;
+    color: rgba(184,137,42,0.25);
+    line-height: 1;
+  }
+
+  .product-badge {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    background: var(--gold);
+    color: var(--charcoal);
+    padding: 0.3rem 0.7rem;
+  }
+
+  .product-coming {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--stone);
+  }
+
+  .product-name {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--warm-white);
+    margin-bottom: 0.35rem;
+  }
+
+  .product-verse-tag {
+    font-family: 'Playfair Display', serif;
+    font-size: 0.8rem;
+    font-style: italic;
+    color: var(--gold);
+    margin-bottom: 0.4rem;
+  }
+
+  .product-price {
+    font-family: 'Barlow', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--stone-light);
+  }
+
+  /* ── VERSE BANNER ── */
+  .verse-banner {
+    background: var(--gold);
+    padding: 5rem 3rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .verse-banner::before {
+    content: '';
+    position: absolute;
+    width: 280px;
+    height: 340px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    opacity: 0.06;
+    background-color: rgba(28,26,23,1);
+    -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 120'%3E%3Crect x='44' y='0' width='12' height='120'/%3E%3Crect x='0' y='28' width='100' height='12'/%3E%3C/svg%3E");
+    mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 120'%3E%3Crect x='44' y='0' width='12' height='120'/%3E%3Crect x='0' y='28' width='100' height='12'/%3E%3C/svg%3E");
+    -webkit-mask-size: contain;
+    mask-size: contain;
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    -webkit-mask-position: center;
+    mask-position: center;
+  }
+
+  .verse-banner blockquote {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.5rem, 3.5vw, 2.8rem);
+    font-weight: 700;
+    font-style: italic;
+    color: var(--charcoal);
+    max-width: 800px;
+    margin: 0 auto 1.25rem;
+    line-height: 1.4;
+    position: relative;
+    z-index: 1;
+  }
+
+  .verse-banner cite {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-style: normal;
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: rgba(28,26,23,0.6);
+    position: relative;
+    z-index: 1;
+  }
+
+  /* ── IDEAS SECTION ── */
+  .ideas-section {
+    background: var(--deep-brown);
+    padding: 7rem 3rem;
+  }
+
+  .ideas-section .section-eyebrow {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 0.75rem;
+    text-align: center;
+  }
+
+  .ideas-section h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 900;
+    color: var(--warm-white);
+    text-align: center;
+    margin-bottom: 0.75rem;
+  }
+
+  .ideas-section .subtitle {
+    text-align: center;
+    color: var(--stone);
+    font-size: 0.95rem;
+    max-width: 480px;
+    margin: 0 auto 4rem;
+    line-height: 1.75;
+  }
+
+  .ideas-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .idea-card {
+    padding: 2rem;
+    border: 1px solid rgba(184,137,42,0.15);
+    background: rgba(28,26,23,0.5);
+  }
+
+  .idea-card h3 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 0.75rem;
+  }
+
+  .idea-card p {
+    font-size: 0.88rem;
+    line-height: 1.8;
+    color: var(--stone-light);
+  }
+
+  /* ── EMAIL SIGNUP ── */
+  .signup {
+    background: var(--charcoal);
+    padding: 6rem 3rem;
+    text-align: center;
+    border-top: 1px solid rgba(184,137,42,0.15);
+  }
+
+  .signup h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.75rem, 3.5vw, 2.75rem);
+    font-weight: 900;
+    font-style: italic;
+    color: var(--warm-white);
+    margin-bottom: 0.75rem;
+  }
+
+  .signup p {
+    font-size: 0.95rem;
+    color: var(--stone);
+    max-width: 380px;
+    margin: 0 auto 2.5rem;
+    line-height: 1.75;
+  }
+
+  .signup-form {
+    display: flex;
+    gap: 0;
+    max-width: 480px;
+    margin: 0 auto;
+  }
+
+  .signup-form input {
+    flex: 1;
+    padding: 1rem 1.5rem;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-right: none;
+    color: var(--cream);
+    font-family: 'Barlow', sans-serif;
+    font-size: 0.9rem;
+    outline: none;
+    transition: border-color 0.2s;
+  }
+
+  .signup-form input:focus { border-color: var(--gold); }
+  .signup-form input::placeholder { color: var(--stone); }
+
+  .signup-form button {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.82rem;
+    font-weight: 700;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    background: var(--gold);
+    color: var(--charcoal);
+    border: none;
+    padding: 1rem 1.75rem;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: background 0.2s;
+  }
+
+  .signup-form button:hover { background: var(--gold-light); }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--deep-brown);
+    padding: 3rem 3rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid rgba(184,137,42,0.1);
+  }
+
+  .footer-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem;
+    font-weight: 900;
+    letter-spacing: 0.12em;
+    color: var(--gold);
+  }
+
+  footer p {
+    font-size: 0.8rem;
+    color: var(--stone);
+    letter-spacing: 0.05em;
+  }
+
+  .footer-links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+  }
+
+  .footer-links a {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--stone);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .footer-links a:hover { color: var(--gold); }
+
+  /* ── CUSTOM DESIGN STUDIO ── */
+  .custom-studio {
+    background: #0E0C0A;
+    padding: 7rem 3rem;
+    position: relative;
+    overflow: hidden;
+    border-top: 1px solid rgba(184,137,42,0.15);
+    border-bottom: 1px solid rgba(184,137,42,0.15);
+  }
+
+  .custom-studio::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse 70% 60% at 50% 100%, rgba(184,137,42,0.07) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .studio-header {
+    text-align: center;
+    margin-bottom: 3.5rem;
+    position: relative;
+    z-index: 2;
+  }
+
+  .studio-header .section-eyebrow {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 0.75rem;
+  }
+
+  .studio-header h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 900;
+    color: var(--warm-white);
+    margin-bottom: 0.75rem;
+  }
+
+  .studio-header p {
+    color: var(--stone);
+    font-size: 0.95rem;
+    max-width: 520px;
+    margin: 0 auto;
+    line-height: 1.75;
+  }
+
+  .studio-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    max-width: 1100px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+    align-items: start;
+  }
+
+  .studio-controls {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .studio-field label {
+    display: block;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 0.6rem;
+  }
+
+  .studio-field textarea,
+  .studio-field input[type="text"],
+  .studio-field select {
+    width: 100%;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(184,137,42,0.25);
+    color: var(--cream);
+    font-family: 'Barlow', sans-serif;
+    font-size: 0.95rem;
+    padding: 0.9rem 1.1rem;
+    outline: none;
+    transition: border-color 0.2s;
+    -webkit-appearance: none;
+    appearance: none;
+  }
+
+  .studio-field textarea { resize: vertical; min-height: 90px; line-height: 1.7; }
+  .studio-field textarea:focus,
+  .studio-field input[type="text"]:focus,
+  .studio-field select:focus { border-color: var(--gold); background: rgba(184,137,42,0.04); }
+  .studio-field textarea::placeholder,
+  .studio-field input[type="text"]::placeholder { color: var(--stone); }
+
+  .studio-field select option { background: #1C1A17; color: var(--cream); }
+
+  .style-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+  }
+
+  .style-pill {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 0.5rem 1rem;
+    border: 1px solid rgba(184,137,42,0.25);
+    background: transparent;
+    color: var(--stone-light);
+    cursor: pointer;
+    transition: all 0.18s;
+  }
+
+  .style-pill:hover,
+  .style-pill.active {
+    border-color: var(--gold);
+    background: rgba(184,137,42,0.12);
+    color: var(--gold);
+  }
+
+  .garment-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.75rem;
+  }
+
+  .generate-btn {
+    width: 100%;
+    padding: 1.1rem;
+    background: var(--gold);
+    color: var(--charcoal);
+    border: none;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 700;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.15s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.6rem;
+  }
+
+  .generate-btn:hover:not(:disabled) { background: var(--gold-light); transform: translateY(-1px); }
+  .generate-btn:disabled { opacity: 0.5; cursor: not-allowed; transform: none; }
+
+  .generate-btn .btn-spinner {
+    width: 16px; height: 16px;
+    border: 2px solid rgba(28,26,23,0.3);
+    border-top-color: var(--charcoal);
+    border-radius: 50%;
+    animation: spin 0.7s linear infinite;
+    display: none;
+  }
+
+  .generate-btn.loading .btn-spinner { display: block; }
+  .generate-btn.loading .btn-label { opacity: 0.6; }
+
+  @keyframes spin { to { transform: rotate(360deg); } }
+
+  /* Preview Panel */
+  .preview-panel {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+
+  .tshirt-mockup {
+    position: relative;
+    width: 100%;
+    background: var(--deep-brown);
+    border: 1px solid rgba(184,137,42,0.15);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 420px;
+    overflow: hidden;
+  }
+
+  .mockup-empty {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    text-align: center;
+    padding: 3rem;
+  }
+
+  .mockup-empty-icon {
+    font-size: 4rem;
+    opacity: 0.15;
+    font-family: serif;
+  }
+
+  .mockup-empty p {
+    font-size: 0.85rem;
+    color: var(--stone);
+    max-width: 220px;
+    line-height: 1.7;
+  }
+
+  .mockup-loading {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.25rem;
+    text-align: center;
+    padding: 3rem;
+  }
+
+  .mockup-loading-ring {
+    width: 56px; height: 56px;
+    border: 2px solid rgba(184,137,42,0.2);
+    border-top-color: var(--gold);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+  }
+
+  .mockup-loading p {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--stone);
+  }
+
+  .mockup-loading .loading-sub {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 0.85rem;
+    color: var(--stone-light);
+    max-width: 200px;
+    letter-spacing: 0;
+    text-transform: none;
+    font-weight: 400;
+  }
+
+  .mockup-result {
+    display: none;
+    width: 100%;
+    height: 100%;
+    position: relative;
+  }
+
+  /* SVG T-shirt shape */
+  .tshirt-svg-wrap {
+    position: relative;
+    width: 100%;
+    padding: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .tshirt-svg-wrap svg {
+    width: 100%;
+    max-width: 300px;
+  }
+
+  .design-on-shirt {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -42%);
+    width: 44%;
+    text-align: center;
+    pointer-events: none;
+  }
+
+  .design-image-preview {
+    width: 100%;
+    border-radius: 2px;
+    display: block;
+  }
+
+  /* Result actions */
+  .result-actions {
+    display: none;
+    gap: 0.75rem;
+  }
+
+  .result-actions.visible { display: flex; }
+
+  .action-btn {
+    flex: 1;
+    padding: 0.85rem;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    cursor: pointer;
+    border: 1px solid rgba(184,137,42,0.3);
+    background: transparent;
+    color: var(--stone-light);
+    transition: all 0.18s;
+  }
+
+  .action-btn:hover { border-color: var(--gold); color: var(--gold); }
+
+  .action-btn.primary {
+    background: var(--gold);
+    color: var(--charcoal);
+    border-color: var(--gold);
+  }
+
+  .action-btn.primary:hover { background: var(--gold-light); border-color: var(--gold-light); }
+
+  /* Order modal */
+  .modal-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.8);
+    z-index: 200;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+  }
+
+  .modal-overlay.open { display: flex; }
+
+  .modal-box {
+    background: var(--deep-brown);
+    border: 1px solid rgba(184,137,42,0.25);
+    max-width: 520px;
+    width: 100%;
+    padding: 2.5rem;
+    position: relative;
+    max-height: 90vh;
+    overflow-y: auto;
+  }
+
+  .modal-close {
+    position: absolute;
+    top: 1.25rem; right: 1.25rem;
+    background: none; border: none;
+    color: var(--stone); cursor: pointer;
+    font-size: 1.4rem; line-height: 1;
+    transition: color 0.2s;
+  }
+
+  .modal-close:hover { color: var(--cream); }
+
+  .modal-box h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.6rem;
+    font-weight: 900;
+    color: var(--warm-white);
+    margin-bottom: 0.4rem;
+  }
+
+  .modal-box .modal-sub {
+    font-size: 0.85rem;
+    color: var(--stone);
+    margin-bottom: 2rem;
+    line-height: 1.6;
+  }
+
+  .modal-design-preview {
+    background: rgba(0,0,0,0.3);
+    border: 1px solid rgba(184,137,42,0.15);
+    padding: 1rem;
+    margin-bottom: 1.75rem;
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+  }
+
+  .modal-design-preview img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+  }
+
+  .modal-design-text h4 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--cream);
+    margin-bottom: 0.3rem;
+  }
+
+  .modal-design-text p {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 0.8rem;
+    color: var(--stone-light);
+    line-height: 1.5;
+  }
+
+  .modal-field {
+    margin-bottom: 1.1rem;
+  }
+
+  .modal-field label {
+    display: block;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 0.5rem;
+  }
+
+  .modal-field input,
+  .modal-field select {
+    width: 100%;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(184,137,42,0.2);
+    color: var(--cream);
+    font-family: 'Barlow', sans-serif;
+    font-size: 0.9rem;
+    padding: 0.8rem 1rem;
+    outline: none;
+    -webkit-appearance: none;
+  }
+
+  .modal-field input:focus,
+  .modal-field select:focus { border-color: var(--gold); }
+
+  .modal-field input::placeholder { color: var(--stone); }
+  .modal-field select option { background: #1C1A17; }
+
+  .modal-row { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; }
+
+  .modal-submit {
+    width: 100%;
+    padding: 1rem;
+    margin-top: 0.5rem;
+    background: var(--gold);
+    color: var(--charcoal);
+    border: none;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.88rem;
+    font-weight: 700;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+
+  .modal-submit:hover { background: var(--gold-light); }
+
+  .modal-success {
+    display: none;
+    text-align: center;
+    padding: 2rem 0;
+  }
+
+  .modal-success .success-icon {
+    font-size: 3rem;
+    color: var(--gold);
+    margin-bottom: 1rem;
+  }
+
+  .modal-success h4 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    font-weight: 900;
+    color: var(--warm-white);
+    margin-bottom: 0.75rem;
+  }
+
+  .modal-success p {
+    font-size: 0.9rem;
+    color: var(--stone-light);
+    line-height: 1.75;
+    max-width: 340px;
+    margin: 0 auto;
+  }
+
+  /* Pure CSS cross — no emoji, no unicode, works on every device */
+  .css-cross {
+    display: inline-block;
+    position: relative;
+    width: 0.75em;
+    height: 1em;
+    vertical-align: middle;
+  }
+  .css-cross::before,
+  .css-cross::after {
+    content: '';
+    position: absolute;
+    background: currentColor;
+    border-radius: 1px;
+  }
+  /* Vertical bar */
+  .css-cross::before {
+    width: 18%;
+    height: 100%;
+    left: 50%;
+    top: 0;
+    transform: translateX(-50%);
+  }
+  /* Horizontal bar */
+  .css-cross::after {
+    width: 100%;
+    height: 18%;
+    top: 28%;
+    left: 0;
+  }
+
+  /* Larger cross for hero background */
+  .hero-cross .css-cross {
+    width: 8rem;
+    height: 10rem;
+  }
+
+  /* Pillar icons */
+  .pillar-icon .css-cross {
+    width: 1rem;
+    height: 1.3rem;
+  }
+
+  /* Product placeholder */
+  .product-symbol .css-cross {
+    width: 2.5rem;
+    height: 3.2rem;
+  }
+
+  @media (max-width: 900px) {
+    nav { padding: 1rem 1.5rem; }
+    .nav-links { display: none; }
+    .hero { padding: 7rem 1.5rem 3rem; }
+    .about-strip { grid-template-columns: 1fr; padding: 4rem 1.5rem; gap: 3rem; }
+    .products-grid { grid-template-columns: repeat(2, 1fr); }
+    .ideas-grid { grid-template-columns: 1fr; }
+    .collection, .ideas-section, .signup { padding: 4rem 1.5rem; }
+    footer { flex-direction: column; gap: 1.5rem; text-align: center; padding: 2rem 1.5rem; }
+    .footer-links { justify-content: center; flex-wrap: wrap; }
+    .verse-banner { padding: 4rem 1.5rem; }
+    .signup-form { flex-direction: column; }
+    .signup-form input { border-right: 1px solid rgba(255,255,255,0.12); border-bottom: none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">CHOSEN</a>
+  <ul class="nav-links">
+    <li><a href="#collection">Shop</a></li>
+    <li><a href="#about">Our Mission</a></li>
+    <li><a href="#custom-design">Custom Design</a></li>
+    <li><a href="#ideas">Collections</a></li>
+    <li><a href="#signup">Join Us</a></li>
+  </ul>
+  <button class="nav-cart">Cart (0)</button>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-bg"></div>
+  <div class="hero-cross"><span class="css-cross"></span></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow">Faith-Rooted Apparel</div>
+    <h1 class="hero-title"><em>Chosen.</em></h1>
+    <p class="hero-title-sub">Wear what you believe.</p>
+    <blockquote class="hero-verse">
+      "You are a chosen people, a royal priesthood, a holy nation, God's special possession."
+      <cite>— 1 Peter 2:9</cite>
+    </blockquote>
+    <div class="hero-ctas">
+      <a href="#collection" class="btn-primary">Shop the Collection</a>
+      <a href="#about" class="btn-outline">Our Story</a>
+    </div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee-wrap">
+  <div class="marquee-track">
+    Faith &nbsp;·&nbsp; Grace &nbsp;·&nbsp; Truth &nbsp;·&nbsp; Chosen &nbsp;·&nbsp; Redeemed &nbsp;·&nbsp; Bold &nbsp;·&nbsp; Set Apart &nbsp;·&nbsp; Fearless &nbsp;·&nbsp; Beloved &nbsp;·&nbsp; Anchored &nbsp;·&nbsp; Faith &nbsp;·&nbsp; Grace &nbsp;·&nbsp; Truth &nbsp;·&nbsp; Chosen &nbsp;·&nbsp; Redeemed &nbsp;·&nbsp; Bold &nbsp;·&nbsp; Set Apart &nbsp;·&nbsp; Fearless &nbsp;·&nbsp; Beloved &nbsp;·&nbsp; Anchored &nbsp;·&nbsp; Faith &nbsp;·&nbsp; Grace &nbsp;·&nbsp; Truth &nbsp;·&nbsp; Chosen &nbsp;·&nbsp; Redeemed &nbsp;·&nbsp; Bold &nbsp;·&nbsp; Set Apart &nbsp;·&nbsp; Fearless &nbsp;·&nbsp; Beloved &nbsp;·&nbsp; Anchored &nbsp;·&nbsp;
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section class="about-strip" id="about">
+  <div class="about-text">
+    <p class="section-eyebrow">Who We Are</p>
+    <h2>More than clothing.<br>A declaration.</h2>
+    <p>CHOSEN was built for believers who want their faith to be visible — not just in church, but in the streets, at work, and everywhere in between.</p>
+    <p>Every piece we make carries a message rooted in scripture. Real faith. Real quality. Worn with purpose.</p>
+  </div>
+  <div class="about-pillars">
+    <div class="pillar">
+      <div class="pillar-icon">♥</div>
+      <h3>Community Driven</h3>
+      <p>A portion of every sale goes to faith-based outreach programs.</p>
+    </div>
+    <div class="pillar">
+      <div class="pillar-icon"><span class="css-cross"></span></div>
+      <h3>Scripture-First</h3>
+      <p>Every design is grounded in the Word.</p>
+    </div>
+    <div class="pillar">
+      <div class="pillar-icon">+</div>
+      <h3>Made to Last</h3>
+      <p>Premium fabrics built for the long haul, just like your faith.</p>
+    </div>
+    <div class="pillar">
+      <div class="pillar-icon">◆</div>
+      <h3>Bold by Design</h3>
+      <p>Streetwear aesthetics with a message the world can't ignore.</p>
+    </div>
+  </div>
+</section>
+
+<!-- COLLECTION -->
+<section class="collection" id="collection">
+  <div class="section-header">
+    <div class="section-header-left">
+      <p class="section-eyebrow">Founding Drop</p>
+      <h2>The First Collection</h2>
+    </div>
+    <a href="#" class="view-all">View All</a>
+  </div>
+  <div class="products-grid">
+    <!-- Card 1 -->
+    <div class="product-card">
+      <div class="product-img">
+        <span class="product-badge">Coming Soon</span>
+        <div class="product-placeholder">
+          <div class="product-symbol"><span class="css-cross"></span></div>
+          <span class="product-coming">Design In Progress</span>
+        </div>
+      </div>
+      <div class="product-name">Chosen Oversized Tee</div>
+      <div class="product-verse-tag">"Set Apart" — Romans 1:1</div>
+      <div class="product-price">$42</div>
+    </div>
+    <!-- Card 2 -->
+    <div class="product-card">
+      <div class="product-img">
+        <span class="product-badge">Coming Soon</span>
+        <div class="product-placeholder">
+          <div class="product-symbol">+</div>
+          <span class="product-coming">Design In Progress</span>
+        </div>
+      </div>
+      <div class="product-name">Grace Heavyweight Hoodie</div>
+      <div class="product-verse-tag">"Amazing Grace" — Ephesians 2:8</div>
+      <div class="product-price">$78</div>
+    </div>
+    <!-- Card 3 -->
+    <div class="product-card">
+      <div class="product-img">
+        <span class="product-badge">Coming Soon</span>
+        <div class="product-placeholder">
+          <div class="product-symbol">◆</div>
+          <span class="product-coming">Design In Progress</span>
+        </div>
+      </div>
+      <div class="product-name">Redeemed Dad Hat</div>
+      <div class="product-verse-tag">"Bought with a Price" — 1 Cor 6:20</div>
+      <div class="product-price">$34</div>
+    </div>
+    <!-- Card 4 -->
+    <div class="product-card">
+      <div class="product-img">
+        <span class="product-badge">Coming Soon</span>
+        <div class="product-placeholder">
+          <div class="product-symbol">♥</div>
+          <span class="product-coming">Design In Progress</span>
+        </div>
+      </div>
+      <div class="product-name">Fearless Crew Sweatshirt</div>
+      <div class="product-verse-tag">"Do Not Fear" — Isaiah 41:10</div>
+      <div class="product-price">$65</div>
+    </div>
+  </div>
+</section>
+
+<!-- VERSE BANNER -->
+<div class="verse-banner">
+  <blockquote>"For I am not ashamed of the gospel, because it is the power of God that brings salvation."</blockquote>
+  <cite>Romans 1:16</cite>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     AI CUSTOM DESIGN STUDIO
+════════════════════════════════════════════ -->
+<section id="custom-design" style="background:#0E0C0A; padding:7rem 3rem; border-top:1px solid rgba(184,137,42,0.2); border-bottom:1px solid rgba(184,137,42,0.2); position:relative; overflow:hidden;">
+
+  <!-- Coming Soon Overlay -->
+  <div style="position:absolute;inset:0;background:rgba(14,12,10,0.82);z-index:50;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1rem;backdrop-filter:blur(3px);">
+    <div style="border:1px solid rgba(184,137,42,0.4);padding:.4rem 1.25rem;font-family:'Barlow Condensed',sans-serif;font-size:.72rem;font-weight:700;letter-spacing:.35em;text-transform:uppercase;color:var(--gold);">Coming Soon</div>
+    <p style="font-family:'Playfair Display',serif;font-style:italic;font-size:1.1rem;color:var(--stone-light);">AI Design Studio launching shortly</p>
+    <p style="font-family:'Barlow',sans-serif;font-size:.85rem;color:var(--stone);max-width:300px;text-align:center;line-height:1.75;">Type your verse, pick your style, and our AI will design your custom tee — coming very soon.</p>
+  </div>
+  <div style="position:absolute;inset:0;background:radial-gradient(ellipse 70% 50% at 50% 100%,rgba(184,137,42,0.07) 0%,transparent 70%);pointer-events:none;"></div>
+
+  <!-- Header -->
+  <div style="text-align:center; margin-bottom:3.5rem; position:relative; z-index:2;">
+    <p style="font-family:'Barlow Condensed',sans-serif;font-size:.75rem;font-weight:700;letter-spacing:.35em;text-transform:uppercase;color:var(--gold);margin-bottom:.75rem;">AI-Powered</p>
+    <h2 style="font-family:'Playfair Display',serif;font-size:clamp(2rem,4vw,3rem);font-weight:900;color:var(--warm-white);margin-bottom:.75rem;">Design Your Own Tee</h2>
+    <p style="color:var(--stone);font-size:.95rem;max-width:540px;margin:0 auto;line-height:1.8;">Type your favorite Bible verse, choose your style — our AI will generate a custom design. Love it? Order it and we'll print it just for you.</p>
+  </div>
+
+  <!-- Studio Layout -->
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:3rem;max-width:1060px;margin:0 auto;position:relative;z-index:2;" class="studio-grid">
+
+    <!-- LEFT: Controls -->
+    <div style="display:flex;flex-direction:column;gap:1.5rem;">
+
+      <!-- Verse input -->
+      <div>
+        <label style="display:block;font-family:'Barlow Condensed',sans-serif;font-size:.75rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin-bottom:.6rem;">Your Verse or Scripture</label>
+        <textarea id="verseInput" rows="3" placeholder="e.g. &quot;I can do all things through Christ who strengthens me&quot; — Philippians 4:13"
+          style="width:100%;background:rgba(255,255,255,.04);border:1px solid rgba(184,137,42,.25);color:var(--cream);font-family:'Barlow',sans-serif;font-size:.95rem;padding:.9rem 1.1rem;outline:none;resize:vertical;line-height:1.7;transition:border-color .2s;"
+          onfocus="this.style.borderColor='var(--gold)'" onblur="this.style.borderColor='rgba(184,137,42,.25)'"></textarea>
+      </div>
+
+      <!-- Style pills -->
+      <div>
+        <label style="display:block;font-family:'Barlow Condensed',sans-serif;font-size:.75rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin-bottom:.75rem;">Design Style</label>
+        <div style="display:flex;flex-wrap:wrap;gap:.6rem;" id="stylePills">
+          <button class="spill active" onclick="selectStyle(this,'Bold Streetwear')">Bold Streetwear</button>
+          <button class="spill" onclick="selectStyle(this,'Vintage Gospel')">Vintage Gospel</button>
+          <button class="spill" onclick="selectStyle(this,'Minimalist')">Minimalist</button>
+          <button class="spill" onclick="selectStyle(this,'Watercolor')">Watercolor</button>
+          <button class="spill" onclick="selectStyle(this,'Hand Lettered')">Hand Lettered</button>
+          <button class="spill" onclick="selectStyle(this,'Dark & Dramatic')">Dark & Dramatic</button>
+        </div>
+      </div>
+
+      <!-- Garment + Color -->
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:.75rem;">
+        <div>
+          <label style="display:block;font-family:'Barlow Condensed',sans-serif;font-size:.75rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin-bottom:.6rem;">Garment</label>
+          <select id="garmentSelect" style="width:100%;background:rgba(255,255,255,.04);border:1px solid rgba(184,137,42,.25);color:var(--cream);font-family:'Barlow',sans-serif;font-size:.9rem;padding:.85rem 1rem;outline:none;-webkit-appearance:none;transition:border-color .2s;"
+            onfocus="this.style.borderColor='var(--gold)'" onblur="this.style.borderColor='rgba(184,137,42,.25)'">
+            <option value="T-Shirt">T-Shirt</option>
+            <option value="Hoodie">Hoodie</option>
+            <option value="Sweatshirt">Sweatshirt</option>
+            <option value="Tank Top">Tank Top</option>
+          </select>
+        </div>
+        <div>
+          <label style="display:block;font-family:'Barlow Condensed',sans-serif;font-size:.75rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin-bottom:.6rem;">Shirt Color</label>
+          <select id="colorSelect" style="width:100%;background:rgba(255,255,255,.04);border:1px solid rgba(184,137,42,.25);color:var(--cream);font-family:'Barlow',sans-serif;font-size:.9rem;padding:.85rem 1rem;outline:none;-webkit-appearance:none;transition:border-color .2s;"
+            onfocus="this.style.borderColor='var(--gold)'" onblur="this.style.borderColor='rgba(184,137,42,.25)'">
+            <option value="Black">Black</option>
+            <option value="White">White</option>
+            <option value="Charcoal Grey">Charcoal Grey</option>
+            <option value="Cream">Cream</option>
+            <option value="Navy">Navy</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Generate button -->
+      <button id="generateBtn" onclick="generateDesign()"
+        style="width:100%;padding:1.1rem;background:var(--gold);color:var(--charcoal);border:none;font-family:'Barlow Condensed',sans-serif;font-size:.9rem;font-weight:700;letter-spacing:.25em;text-transform:uppercase;cursor:pointer;transition:background .2s,transform .15s;display:flex;align-items:center;justify-content:center;gap:.75rem;">
+        <span id="btnSpinner" style="display:none;width:17px;height:17px;border:2px solid rgba(28,26,23,.3);border-top-color:var(--charcoal);border-radius:50%;animation:spin .7s linear infinite;flex-shrink:0;"></span>
+        <span id="btnLabel">+ Generate My Design</span>
+      </button>
+
+      <!-- Info note -->
+      <p style="font-size:.78rem;color:var(--stone);line-height:1.7;padding-left:1rem;border-left:2px solid rgba(184,137,42,.2);">AI will create a unique graphic concept inspired by your verse and style. Every design is one-of-a-kind — no two are ever the same. <strong style="color:var(--gold-light);">$59 flat · made to order · free to generate.</strong></p>
+    </div>
+
+    <!-- RIGHT: Mockup Preview -->
+    <div style="display:flex;flex-direction:column;gap:1.25rem;">
+
+      <!-- T-shirt mockup canvas -->
+      <div id="mockupBox" style="background:var(--deep-brown);border:1px solid rgba(184,137,42,.15);min-height:400px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;">
+
+        <!-- Empty state -->
+        <div id="emptyState" style="display:flex;flex-direction:column;align-items:center;gap:1rem;text-align:center;padding:3rem;">
+          <div style="font-size:4rem;opacity:.12;font-family:serif;"><span class="css-cross"></span></div>
+          <p style="font-size:.85rem;color:var(--stone);max-width:200px;line-height:1.75;">Enter your verse and hit Generate to see your design come to life</p>
+        </div>
+
+        <!-- Loading state -->
+        <div id="loadingState" style="display:none;flex-direction:column;align-items:center;gap:1.25rem;text-align:center;padding:3rem;">
+          <div style="width:52px;height:52px;border:2px solid rgba(184,137,42,.2);border-top-color:var(--gold);border-radius:50%;animation:spin 1s linear infinite;"></div>
+          <p style="font-family:'Barlow Condensed',sans-serif;font-size:.78rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--stone);">Creating Your Design</p>
+          <p id="loadingVerse" style="font-family:'Playfair Display',serif;font-style:italic;font-size:.85rem;color:var(--stone-light);max-width:210px;line-height:1.6;"></p>
+        </div>
+
+        <!-- Result state -->
+        <div id="resultState" style="display:none;width:100%;height:100%;flex-direction:column;">
+          <!-- Shirt mockup with design overlaid -->
+          <div style="position:relative;display:flex;align-items:center;justify-content:center;padding:2rem;flex:1;">
+            <!-- SVG shirt shape -->
+            <svg id="shirtSvg" viewBox="0 0 220 240" style="width:100%;max-width:260px;filter:drop-shadow(0 8px 24px rgba(0,0,0,.5));">
+              <path id="shirtPath" d="M70,10 L10,45 L30,65 L50,55 L50,230 L170,230 L170,55 L190,65 L210,45 L150,10 Q140,30 110,30 Q80,30 70,10 Z" fill="#1a1a1a" stroke="rgba(184,137,42,0.2)" stroke-width="1"/>
+            </svg>
+            <!-- Generated design image overlaid on chest -->
+            <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-44%);width:38%;pointer-events:none;">
+              <img id="designImg" src="" alt="Generated design" style="width:100%;display:block;border-radius:2px;mix-blend-mode:screen;opacity:.95;">
+            </div>
+          </div>
+          <!-- Verse label under shirt -->
+          <div style="padding:1rem 1.5rem 1.5rem;border-top:1px solid rgba(184,137,42,.1);">
+            <p id="resultVerse" style="font-family:'Playfair Display',serif;font-style:italic;font-size:.85rem;color:var(--gold);line-height:1.6;margin-bottom:.25rem;"></p>
+            <p id="resultMeta" style="font-family:'Barlow Condensed',sans-serif;font-size:.72rem;font-weight:600;letter-spacing:.15em;text-transform:uppercase;color:var(--stone);"></p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Action buttons (shown after generation) -->
+      <div id="actionBtns" style="display:none;gap:.75rem;">
+        <button onclick="regenerate()" style="flex:1;padding:.85rem;font-family:'Barlow Condensed',sans-serif;font-size:.78rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;cursor:pointer;border:1px solid rgba(184,137,42,.3);background:transparent;color:var(--stone-light);transition:all .18s;" onmouseover="this.style.borderColor='var(--gold)';this.style.color='var(--gold)'" onmouseout="this.style.borderColor='rgba(184,137,42,.3)';this.style.color='var(--stone-light)'">↺ Try Again</button>
+        <button onclick="openOrderModal()" style="flex:1;padding:.85rem;font-family:'Barlow Condensed',sans-serif;font-size:.78rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;cursor:pointer;border:none;background:var(--gold);color:var(--charcoal);transition:background .2s;" onmouseover="this.style.background='var(--gold-light)'" onmouseout="this.style.background='var(--gold)'">Order This Design →</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ORDER MODAL -->
+<div id="orderModal" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,.85);z-index:300;align-items:center;justify-content:center;padding:2rem;">
+  <div style="background:var(--deep-brown);border:1px solid rgba(184,137,42,.25);max-width:500px;width:100%;padding:2.5rem;position:relative;max-height:90vh;overflow-y:auto;">
+    <button onclick="closeOrderModal()" style="position:absolute;top:1.25rem;right:1.25rem;background:none;border:none;color:var(--stone);cursor:pointer;font-size:1.5rem;line-height:1;transition:color .2s;" onmouseover="this.style.color='var(--cream)'" onmouseout="this.style.color='var(--stone)'">✕</button>
+
+    <!-- Form -->
+    <div id="modalForm">
+      <h3 style="font-family:'Playfair Display',serif;font-size:1.6rem;font-weight:900;color:var(--warm-white);margin-bottom:.3rem;">Place Your Order</h3>
+      <p style="font-size:.85rem;color:var(--stone);margin-bottom:1.75rem;line-height:1.6;">We'll print your custom design and ship it straight to you. Each piece is made to order — yours alone.</p>
+
+      <!-- Design preview summary -->
+      <div id="modalDesignSummary" style="background:rgba(0,0,0,.3);border:1px solid rgba(184,137,42,.15);padding:1rem 1.25rem;margin-bottom:1.75rem;display:flex;gap:1rem;align-items:center;">
+        <img id="modalThumb" src="" alt="" style="width:70px;height:70px;object-fit:cover;border:1px solid rgba(184,137,42,.2);">
+        <div>
+          <p style="font-family:'Barlow Condensed',sans-serif;font-size:.78rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--cream);margin-bottom:.3rem;">Your Custom Design</p>
+          <p id="modalVerseLabel" style="font-family:'Playfair Display',serif;font-style:italic;font-size:.8rem;color:var(--stone-light);line-height:1.5;"></p>
+        </div>
+      </div>
+
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:.75rem;margin-bottom:.75rem;">
+        <div>
+          <label style="display:block;font-family:'Barlow Condensed',sans-serif;font-size:.72rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:.5rem;">First Name</label>
+          <input type="text" id="oFirstName" placeholder="John" style="width:100%;background:rgba(255,255,255,.05);border:1px solid rgba(184,137,42,.2);color:var(--cream);font-family:'Barlow',sans-serif;font-size:.9rem;padding:.8rem 1rem;outline:none;" onfocus="this.style.borderColor='var(--gold)'" onblur="this.style.borderColor='rgba(184,137,42,.2)'">
+        </div>
+        <div>
+          <label style="display:block;font-family:'Barlow Condensed',sans-serif;font-size:.72rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:.5rem;">Last Name</label>
+          <input type="text" id="oLastName" placeholder="3:16" style="width:100%;background:rgba(255,255,255,.05);border:1px solid rgba(184,137,42,.2);color:var(--cream);font-family:'Barlow',sans-serif;font-size:.9rem;padding:.8rem 1rem;outline:none;" onfocus="this.style.borderColor='var(--gold)'" onblur="this.style.borderColor='rgba(184,137,42,.2)'">
+        </div>
+      </div>
+      <div style="margin-bottom:.75rem;">
+        <label style="display:block;font-family:'Barlow Condensed',sans-serif;font-size:.72rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:.5rem;">Email</label>
+        <input type="text" id="oEmail" placeholder="you@example.com" style="width:100%;background:rgba(255,255,255,.05);border:1px solid rgba(184,137,42,.2);color:var(--cream);font-family:'Barlow',sans-serif;font-size:.9rem;padding:.8rem 1rem;outline:none;" onfocus="this.style.borderColor='var(--gold)'" onblur="this.style.borderColor='rgba(184,137,42,.2)'">
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:.75rem;margin-bottom:.75rem;">
+        <div>
+          <label style="display:block;font-family:'Barlow Condensed',sans-serif;font-size:.72rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:.5rem;">Size</label>
+          <select id="oSize" style="width:100%;background:#2E2419;border:1px solid rgba(184,137,42,.2);color:var(--cream);font-family:'Barlow',sans-serif;font-size:.9rem;padding:.8rem 1rem;outline:none;-webkit-appearance:none;">
+            <option>S</option><option>M</option><option selected>L</option><option>XL</option><option>2XL</option><option>3XL</option>
+          </select>
+        </div>
+        <div>
+          <label style="display:block;font-family:'Barlow Condensed',sans-serif;font-size:.72rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:.5rem;">Qty</label>
+          <select id="oQty" style="width:100%;background:#2E2419;border:1px solid rgba(184,137,42,.2);color:var(--cream);font-family:'Barlow',sans-serif;font-size:.9rem;padding:.8rem 1rem;outline:none;-webkit-appearance:none;">
+            <option>1</option><option>2</option><option>3</option><option>4</option><option>5</option>
+          </select>
+        </div>
+      </div>
+      <div style="margin-bottom:1.5rem;">
+        <label style="display:block;font-family:'Barlow Condensed',sans-serif;font-size:.72rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:.5rem;">Shipping Address</label>
+        <input type="text" id="oAddress" placeholder="123 Faith Lane, Atlanta, GA 30301" style="width:100%;background:rgba(255,255,255,.05);border:1px solid rgba(184,137,42,.2);color:var(--cream);font-family:'Barlow',sans-serif;font-size:.9rem;padding:.8rem 1rem;outline:none;" onfocus="this.style.borderColor='var(--gold)'" onblur="this.style.borderColor='rgba(184,137,42,.2)'">
+      </div>
+      <!-- Price summary -->
+      <div style="display:flex;justify-content:space-between;align-items:center;padding:1rem 1.25rem;background:rgba(184,137,42,0.08);border:1px solid rgba(184,137,42,0.2);margin-bottom:1rem;">
+        <div>
+          <p style="font-family:'Barlow Condensed',sans-serif;font-size:.75rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--stone);margin-bottom:.2rem;">Custom AI Design · Made to Order</p>
+          <p style="font-size:.8rem;color:var(--stone);line-height:1.5;">One-of-a-kind · Includes printing & handling</p>
+        </div>
+        <div style="text-align:right;">
+          <p style="font-family:'Playfair Display',serif;font-size:1.75rem;font-weight:900;color:var(--gold);line-height:1;">$59</p>
+          <p style="font-family:'Barlow Condensed',sans-serif;font-size:.7rem;letter-spacing:.15em;text-transform:uppercase;color:var(--stone);">+ shipping</p>
+        </div>
+      </div>
+
+      <button onclick="submitOrder()" style="width:100%;padding:1rem;background:var(--gold);color:var(--charcoal);border:none;font-family:'Barlow Condensed',sans-serif;font-size:.88rem;font-weight:700;letter-spacing:.25em;text-transform:uppercase;cursor:pointer;transition:background .2s;" onmouseover="this.style.background='var(--gold-light)'" onmouseout="this.style.background='var(--gold)'"><span class="css-cross"></span> Confirm My Order — $59</button>
+    </div>
+
+    <!-- Success state -->
+    <div id="modalSuccess" style="display:none;text-align:center;padding:2rem 0;">
+      <div style="font-size:3rem;margin-bottom:1rem;"><span class="css-cross"></span></div>
+      <h4 style="font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:900;color:var(--warm-white);margin-bottom:.75rem;">Almost There!</h4>
+      <p style="font-size:.9rem;color:var(--stone-light);line-height:1.8;max-width:320px;margin:0 auto 1rem;">Your design details are saved. You're being redirected to our secure Stripe checkout to complete your $59 payment...</p>
+      <div style="display:flex;align-items:center;justify-content:center;gap:.6rem;margin-bottom:1.5rem;">
+        <div style="width:14px;height:14px;border:2px solid rgba(184,137,42,.3);border-top-color:var(--gold);border-radius:50%;animation:spin .8s linear infinite;"></div>
+        <span style="font-family:'Barlow Condensed',sans-serif;font-size:.78rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--stone);">Opening Stripe...</span>
+      </div>
+      <p style="font-family:'Playfair Display',serif;font-style:italic;font-size:.85rem;color:var(--gold);">"Whatever you do, work at it with all your heart." — Colossians 3:23</p>
+    </div>
+  </div>
+</div>
+
+<style>
+  .spill {
+    font-family:'Barlow Condensed',sans-serif;font-size:.78rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;
+    padding:.5rem 1rem;border:1px solid rgba(184,137,42,.25);background:transparent;color:var(--stone-light);cursor:pointer;transition:all .18s;
+  }
+  .spill:hover,.spill.active{border-color:var(--gold);background:rgba(184,137,42,.12);color:var(--gold);}
+  @keyframes spin{to{transform:rotate(360deg);}}
+  @media(max-width:780px){.studio-grid{grid-template-columns:1fr!important;}}
+  #actionBtns{display:flex;}
+</style>
+
+<script>
+  let selectedStyle = 'Bold Streetwear';
+  let currentDesignUrl = '';
+  let currentVerse = '';
+
+  function selectStyle(el, style) {
+    document.querySelectorAll('.spill').forEach(p => p.classList.remove('active'));
+    el.classList.add('active');
+    selectedStyle = style;
+  }
+
+  async function generateDesign() {
+    const verse = document.getElementById('verseInput').value.trim();
+    if (!verse) {
+      document.getElementById('verseInput').style.borderColor = 'var(--rust)';
+      document.getElementById('verseInput').placeholder = '⚠ Please enter a verse first...';
+      setTimeout(() => {
+        document.getElementById('verseInput').style.borderColor = 'rgba(184,137,42,.25)';
+        document.getElementById('verseInput').placeholder = 'e.g. "I can do all things through Christ who strengthens me" — Philippians 4:13';
+      }, 2500);
+      return;
+    }
+
+    currentVerse = verse;
+    const garment = document.getElementById('garmentSelect').value;
+    const color = document.getElementById('colorSelect').value;
+
+    // Update shirt color
+    const shirtColors = { 'Black':'#111','White':'#f5f0e8','Charcoal Grey':'#3a3a3a','Cream':'#e8e0d0','Navy':'#1a2340' };
+    document.getElementById('shirtPath').setAttribute('fill', shirtColors[color] || '#1a1a1a');
+
+    // Show loading
+    document.getElementById('emptyState').style.display = 'none';
+    document.getElementById('resultState').style.display = 'none';
+    document.getElementById('loadingState').style.display = 'flex';
+    document.getElementById('actionBtns').style.display = 'none';
+    document.getElementById('loadingVerse').textContent = '"' + verse.substring(0,60) + (verse.length>60?'…':'"');
+
+    const btn = document.getElementById('generateBtn');
+    btn.disabled = true;
+    document.getElementById('btnSpinner').style.display = 'block';
+    document.getElementById('btnLabel').textContent = 'Creating…';
+
+    try {
+      // Call Claude to generate a detailed image prompt
+      const promptRes = await fetch("https://api.anthropic.com/v1/messages", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          model: "claude-sonnet-4-20250514",
+          max_tokens: 300,
+          messages: [{
+            role: "user",
+            content: `You are a creative director for a Christian streetwear clothing brand called CHOSEN.
+A customer wants a custom t-shirt design based on this verse: "${verse}"
+Style preference: ${selectedStyle}
+Garment: ${garment} (${color})
+
+Write a concise image generation prompt (under 120 words) for creating a graphic design to be printed on the front of this ${garment}. 
+The design should be a striking graphic — NOT a photo of a person or shirt. Think: symbolic, typographic, or illustrated artwork suitable for screen printing.
+Focus on: visual symbols related to the verse, the scripture text styled beautifully, faith-based imagery (cross, light, dove, crown, etc.), consistent with ${selectedStyle} aesthetic.
+Return ONLY the image prompt, nothing else.`
+          }]
+        })
+      });
+
+      const promptData = await promptRes.json();
+      const imagePrompt = promptData.content?.[0]?.text?.trim() || `Christian streetwear graphic design for "${verse}", ${selectedStyle} style, bold typography, cross imagery, golden tones on dark background, screen print art`;
+
+      // Use Claude to generate an SVG/canvas-based design description we render ourselves
+      // Since we can't call image generation APIs, we'll use Claude to create an SVG design
+      const svgRes = await fetch("https://api.anthropic.com/v1/messages", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          model: "claude-sonnet-4-20250514",
+          max_tokens: 2000,
+          messages: [{
+            role: "user",
+            content: `Create a beautiful SVG graphic design for a Christian ${garment} based on this verse: "${verse}"
+Style: ${selectedStyle}
+Shirt color: ${color}
+
+Requirements:
+- Output ONLY a raw SVG element (starting with <svg and ending with </svg>), no other text
+- viewBox="0 0 300 300"
+- Transparent background (no rect fill covering the whole thing)
+- Include: stylized verse text or key words, a symbolic faith icon (cross, dove, rays of light, crown of thorns, anchor, etc.)
+- Use colors that look great on a ${color} shirt: golds (#B8892A, #D4AA50), whites (#FAF8F4), warm creams, deep shadows
+- Make it look like a real screen-print graphic — bold, iconic, wearable
+- ${selectedStyle === 'Minimalist' ? 'Keep it clean and simple with minimal elements' : ''}
+- ${selectedStyle === 'Bold Streetwear' ? 'Make it bold, graphic, high contrast like a streetwear drop' : ''}
+- ${selectedStyle === 'Vintage Gospel' ? 'Use distressed textures, vintage feel, classic church aesthetic' : ''}
+- ${selectedStyle === 'Watercolor' ? 'Use soft, flowing shapes suggesting watercolor washes' : ''}
+- ${selectedStyle === 'Hand Lettered' ? 'Feature the text prominently with a hand-lettered feel' : ''}
+- ${selectedStyle === 'Dark & Dramatic' ? 'Use dramatic contrasts, bold imagery, powerful feel' : ''}
+SVG only:`
+          }]
+        })
+      });
+
+      const svgData = await svgRes.json();
+      let svgContent = svgData.content?.[0]?.text?.trim() || '';
+
+      // Clean up the SVG
+      svgContent = svgContent.replace(/```svg|```xml|```/g, '').trim();
+      if (!svgContent.startsWith('<svg')) {
+        const idx = svgContent.indexOf('<svg');
+        if (idx !== -1) svgContent = svgContent.substring(idx);
+      }
+      const endIdx = svgContent.lastIndexOf('</svg>');
+      if (endIdx !== -1) svgContent = svgContent.substring(0, endIdx + 6);
+
+      // Convert SVG to data URL
+      const blob = new Blob([svgContent], { type: 'image/svg+xml' });
+      const url = URL.createObjectURL(blob);
+      currentDesignUrl = url;
+
+      // Show result
+      document.getElementById('loadingState').style.display = 'none';
+      document.getElementById('resultState').style.display = 'flex';
+      document.getElementById('designImg').src = url;
+      document.getElementById('resultVerse').textContent = '"' + verse.substring(0,80) + (verse.length>80?'…':'"');
+      document.getElementById('resultMeta').textContent = selectedStyle + ' · ' + color + ' ' + garment;
+      document.getElementById('actionBtns').style.display = 'flex';
+
+    } catch (err) {
+      console.error(err);
+      document.getElementById('loadingState').style.display = 'none';
+      document.getElementById('emptyState').style.display = 'flex';
+      document.getElementById('emptyState').innerHTML = '<div style="font-size:2rem;opacity:.4;">⚠</div><p style="font-size:.85rem;color:var(--stone);max-width:200px;line-height:1.75;">Something went wrong. Please try again in a moment.</p>';
+    }
+
+    btn.disabled = false;
+    document.getElementById('btnSpinner').style.display = 'none';
+    document.getElementById('btnLabel').textContent = '+ Generate My Design';
+  }
+
+  function regenerate() {
+    document.getElementById('resultState').style.display = 'none';
+    document.getElementById('actionBtns').style.display = 'none';
+    document.getElementById('emptyState').style.display = 'flex';
+    generateDesign();
+  }
+
+  function openOrderModal() {
+    const modal = document.getElementById('orderModal');
+    modal.style.display = 'flex';
+    document.getElementById('modalThumb').src = currentDesignUrl;
+    const v = currentVerse;
+    document.getElementById('modalVerseLabel').textContent = '"' + v.substring(0,70) + (v.length>70?'…':'"');
+  }
+
+  function closeOrderModal() {
+    document.getElementById('orderModal').style.display = 'none';
+    document.getElementById('modalForm').style.display = 'block';
+    document.getElementById('modalSuccess').style.display = 'none';
+  }
+
+  function submitOrder() {
+    const firstName = document.getElementById("oFirstName").value.trim();
+    const lastName = document.getElementById("oLastName").value.trim();
+    const email = document.getElementById("oEmail").value.trim();
+    const address = document.getElementById("oAddress").value.trim();
+    const size = document.getElementById("oSize").value;
+    const qty = document.getElementById("oQty").value;
+    const garment = document.getElementById("garmentSelect").value;
+    const color = document.getElementById("colorSelect").value;
+
+    if (!firstName || !email || !address) {
+      alert("Please fill in your name, email, and address to continue.");
+      return;
+    }
+
+    // ✏️  Replace with your real Stripe Payment Link URL
+    const STRIPE_LINK = "https://buy.stripe.com/YOUR_STRIPE_PAYMENT_LINK";
+
+    const orderDetails = {
+      name: firstName + " " + lastName,
+      email, address, size, qty, garment, color,
+      verse: currentVerse,
+      style: selectedStyle,
+      orderId: "CHO-" + Date.now().toString().slice(-6)
+    };
+    sessionStorage.setItem("chosenOrder", JSON.stringify(orderDetails));
+
+    // Show success message then open Stripe in new tab
+    document.getElementById("modalForm").style.display = "none";
+    document.getElementById("modalSuccess").style.display = "block";
+
+    const params = new URLSearchParams({ prefilled_email: email });
+    setTimeout(() => {
+      window.open(STRIPE_LINK + "?" + params.toString(), "_blank");
+    }, 2200);
+  }
+
+  // Close modal on overlay click
+  document.getElementById('orderModal').addEventListener('click', function(e) {
+    if (e.target === this) closeOrderModal();
+  });
+</script>
+
+<!-- COLLECTION IDEAS -->
+<section class="ideas-section" id="ideas">
+  <p class="section-eyebrow">Vision Board</p>
+  <h2>Collection Ideas</h2>
+  <p class="subtitle">Here are some directions we could grow into — tag us on Instagram and let us know which one speaks to you!</p>
+  <div class="ideas-grid">
+    <div class="idea-card">
+      <h3>🏛 The Armor Drop</h3>
+      <p>Inspired by Ephesians 6 — the Full Armor of God. Each piece (belt, breastplate, shield, helmet) becomes a garment in a matching set. Structured, bold, military-adjacent aesthetic.</p>
+    </div>
+    <div class="idea-card">
+      <h3>📖 Verse Series</h3>
+      <p>Rotating drops anchored to one power verse per season. Typography-led designs where the scripture itself becomes the visual statement. Clean and wearable for any occasion.</p>
+    </div>
+    <div class="idea-card">
+      <h3>🌿 The Roots Collection</h3>
+      <p>Heritage-inspired pieces that connect faith to Black church tradition, gospel music, and community. Rich earth tones, hand-lettered styles, deep cultural resonance.</p>
+    </div>
+    <div class="idea-card">
+      <h3>🔥 Revival Streetwear</h3>
+      <p>Fire and bold graphic tees that look like streetwear but carry a gospel message. Think Supreme meets the Great Commission. For the young believer who lives in the culture.</p>
+    </div>
+    <div class="idea-card">
+      <h3>🕊 Still Small Voice</h3>
+      <p>A minimalist, quiet luxury line. Subtle embossed crosses, tonal embroidery, linen and heavyweight cotton. Faith for those who prefer to let their life — not their shirt — do the talking.</p>
+    </div>
+    <div class="idea-card">
+      <h3>🏆 Athletes of Faith</h3>
+      <p>Performance and athletic gear for the believer who trains hard. Moisture-wicking tees, compression gear, and gym bags printed with Philippians 4:13. Built for champions.</p>
+    </div>
+  </div>
+</section>
+
+<!-- SIGNUP -->
+<section class="signup" id="signup" style="position:relative;">
+  <!-- Coming Soon Overlay -->
+  <div style="position:absolute;inset:0;background:rgba(14,12,10,0.82);z-index:10;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1rem;backdrop-filter:blur(3px);">
+    <div style="border:1px solid rgba(184,137,42,0.4);padding:.4rem 1.25rem;font-family:'Barlow Condensed',sans-serif;font-size:.72rem;font-weight:700;letter-spacing:.35em;text-transform:uppercase;color:var(--gold);">Coming Soon</div>
+    <p style="font-family:'Playfair Display',serif;font-style:italic;font-size:1.1rem;color:var(--stone-light);">Email list launching shortly</p>
+  </div>
+  <h2>Be First to Know.</h2>
+  <p>Join the CHOSEN community — early access, launch announcements, and faith-filled content straight to your inbox.</p>
+  <div class="signup-form">
+    <input type="email" placeholder="Enter your email address">
+    <button type="button">Join the Movement</button>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">CHOSEN</div>
+  <p>© 2025 Chosen Apparel Co. — Wear what you believe.</p>
+  <ul class="footer-links">
+    <li><a href="#">Instagram</a></li>
+    <li><a href="#">TikTok</a></li>
+    <li><a href="#">Contact</a></li>
+    <li><a href="#">FAQ</a></li>
+  </ul>
+</footer>
+
+</body>
+</html>
