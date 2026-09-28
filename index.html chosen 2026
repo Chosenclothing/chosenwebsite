@@ -1,0 +1,2549 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script>document.documentElement.classList.add("js")</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="CHOSEN — faith-rooted apparel. Wear what you believe.">
+<title>CHOSEN — Faith-Rooted Apparel</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700;1,900&family=Barlow+Condensed:wght@400;500;600;700&family=Barlow:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --cream: #F5F0E8;
+    --warm-white: #FAF8F4;
+    --charcoal: #14110E;
+    --deep-brown: #1E1710;
+    --gold: #B8892A;
+    --gold-light: #D4AA50;
+    --rust: #8B3A1A;
+    --stone: #8A8278;
+    --stone-light: #C4BDB4;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--charcoal);
+    color: var(--cream);
+    font-family: 'Barlow', sans-serif;
+    font-weight: 300;
+    overflow-x: hidden;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.25rem 3rem;
+    background: rgba(28, 26, 23, 0.92);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid rgba(184,137,42,0.15);
+  }
+
+  .nav-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.6rem;
+    font-weight: 900;
+    letter-spacing: 0.12em;
+    color: var(--gold);
+    text-decoration: none;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 2.5rem;
+    list-style: none;
+  }
+
+  .nav-links a {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--stone-light);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--gold-light); }
+
+  .nav-cart {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--charcoal);
+    background: var(--gold);
+    padding: 0.55rem 1.4rem;
+    border: none;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+
+  .nav-cart:hover { background: var(--gold-light); }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    position: relative;
+    padding: 8rem 3rem 4rem;
+    overflow: hidden;
+  }
+
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 60% 80% at 65% 50%, rgba(184,137,42,0.06) 0%, transparent 70%),
+      radial-gradient(ellipse 40% 60% at 20% 80%, rgba(139,58,26,0.08) 0%, transparent 60%),
+      var(--charcoal);
+  }
+
+  .hero-cross {
+    position: absolute;
+    right: 8%;
+    top: 50%;
+    transform: translateY(-50%);
+    opacity: 0.04;
+    font-size: 32rem;
+    font-family: 'Playfair Display', serif;
+    font-weight: 900;
+    color: var(--gold);
+    user-select: none;
+    line-height: 1;
+    letter-spacing: -0.05em;
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 680px;
+  }
+
+  .hero-eyebrow {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .hero-eyebrow::before {
+    content: '';
+    display: block;
+    width: 2.5rem;
+    height: 1px;
+    background: var(--gold);
+  }
+
+  .hero-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(4rem, 9vw, 8rem);
+    font-weight: 900;
+    line-height: 0.9;
+    letter-spacing: -0.02em;
+    color: var(--warm-white);
+    margin-bottom: 0.25rem;
+  }
+
+  .hero-title em {
+    font-style: italic;
+    color: var(--gold);
+  }
+
+  .hero-title-sub {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.5rem, 3.5vw, 3rem);
+    font-weight: 700;
+    font-style: italic;
+    color: var(--stone);
+    margin-bottom: 2.5rem;
+    letter-spacing: 0.01em;
+  }
+
+  .hero-verse {
+    font-family: 'Playfair Display', serif;
+    font-size: 1rem;
+    font-style: italic;
+    color: var(--stone-light);
+    margin-bottom: 3rem;
+    padding-left: 1.25rem;
+    border-left: 2px solid var(--gold);
+    line-height: 1.8;
+    max-width: 440px;
+  }
+
+  .hero-verse cite {
+    display: block;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-style: normal;
+    font-size: 0.78rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-top: 0.5rem;
+  }
+
+  .hero-ctas {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .btn-primary {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--charcoal);
+    background: var(--gold);
+    padding: 1rem 2.5rem;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    transition: background 0.2s, transform 0.15s;
+  }
+
+  .btn-primary:hover {
+    background: var(--gold-light);
+    transform: translateY(-1px);
+  }
+
+  .btn-outline {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--cream);
+    background: transparent;
+    padding: 1rem 2.5rem;
+    border: 1px solid rgba(255,255,255,0.25);
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    transition: border-color 0.2s, color 0.2s, transform 0.15s;
+  }
+
+  .btn-outline:hover {
+    border-color: var(--gold);
+    color: var(--gold);
+    transform: translateY(-1px);
+  }
+
+  /* ── MARQUEE ── */
+  .marquee-wrap {
+    overflow: hidden;
+    background: var(--gold);
+    padding: 0.85rem 0;
+    white-space: nowrap;
+  }
+
+  .marquee-track {
+    display: inline-block;
+    animation: marquee 20s linear infinite;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--charcoal);
+  }
+
+  @keyframes marquee {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+
+  /* ── ABOUT STRIP ── */
+  .about-strip {
+    background: var(--deep-brown);
+    padding: 6rem 3rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6rem;
+    align-items: center;
+  }
+
+  .about-text .section-eyebrow {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1.5rem;
+  }
+
+  .about-text h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 4vw, 3.5rem);
+    font-weight: 900;
+    line-height: 1.05;
+    color: var(--warm-white);
+    margin-bottom: 1.75rem;
+  }
+
+  .about-text p {
+    font-size: 1rem;
+    line-height: 1.85;
+    color: var(--stone-light);
+    max-width: 460px;
+    margin-bottom: 1rem;
+  }
+
+  .about-pillars {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+  }
+
+  .pillar {
+    padding: 1.75rem 1.5rem;
+    border: 1px solid rgba(184,137,42,0.2);
+    background: rgba(184,137,42,0.03);
+  }
+
+  .pillar-icon {
+    font-size: 1.5rem;
+    margin-bottom: 0.75rem;
+    color: var(--gold);
+    font-family: 'Playfair Display', serif;
+    font-weight: 900;
+  }
+
+  .pillar h3 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--warm-white);
+    margin-bottom: 0.5rem;
+  }
+
+  .pillar p {
+    font-size: 0.85rem;
+    line-height: 1.7;
+    color: var(--stone);
+  }
+
+  /* ── COLLECTION ── */
+  .collection {
+    padding: 7rem 3rem;
+    background: var(--charcoal);
+  }
+
+  .section-header {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    margin-bottom: 3.5rem;
+  }
+
+  .section-header-left .section-eyebrow {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 0.75rem;
+  }
+
+  .section-header-left h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 900;
+    color: var(--warm-white);
+    line-height: 1.1;
+  }
+
+  .view-all {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: gap 0.2s;
+    white-space: nowrap;
+    margin-bottom: 0.5rem;
+  }
+
+  .view-all:hover { gap: 0.85rem; }
+  .view-all::after { content: '→'; }
+
+  .products-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+  }
+
+  .product-card {
+    cursor: pointer;
+  }
+
+  .product-img {
+    aspect-ratio: 3/4;
+    background: var(--deep-brown);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.35s ease;
+  }
+
+  .product-card:hover .product-img { transform: scale(0.98); }
+
+  .product-placeholder {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    text-align: center;
+    padding: 2rem;
+  }
+
+  .product-symbol {
+    font-family: 'Playfair Display', serif;
+    font-size: 3.5rem;
+    font-weight: 900;
+    color: rgba(184,137,42,0.25);
+    line-height: 1;
+  }
+
+  .product-badge {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    background: var(--gold);
+    color: var(--charcoal);
+    padding: 0.3rem 0.7rem;
+  }
+
+  .product-coming {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--stone);
+  }
+
+  .product-name {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--warm-white);
+    margin-bottom: 0.35rem;
+  }
+
+  .product-verse-tag {
+    font-family: 'Playfair Display', serif;
+    font-size: 0.8rem;
+    font-style: italic;
+    color: var(--gold);
+    margin-bottom: 0.4rem;
+  }
+
+  .product-price {
+    font-family: 'Barlow', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--stone-light);
+  }
+
+  /* ── VERSE BANNER ── */
+  .verse-banner {
+    background: var(--gold);
+    padding: 5rem 3rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .verse-banner::before {
+    content: '';
+    position: absolute;
+    width: 280px;
+    height: 340px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    opacity: 0.06;
+    background-color: rgba(28,26,23,1);
+    -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 120'%3E%3Crect x='44' y='0' width='12' height='120'/%3E%3Crect x='0' y='28' width='100' height='12'/%3E%3C/svg%3E");
+    mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 120'%3E%3Crect x='44' y='0' width='12' height='120'/%3E%3Crect x='0' y='28' width='100' height='12'/%3E%3C/svg%3E");
+    -webkit-mask-size: contain;
+    mask-size: contain;
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    -webkit-mask-position: center;
+    mask-position: center;
+  }
+
+  .verse-banner blockquote {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.5rem, 3.5vw, 2.8rem);
+    font-weight: 700;
+    font-style: italic;
+    color: var(--charcoal);
+    max-width: 800px;
+    margin: 0 auto 1.25rem;
+    line-height: 1.4;
+    position: relative;
+    z-index: 1;
+  }
+
+  .verse-banner cite {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-style: normal;
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: rgba(28,26,23,0.6);
+    position: relative;
+    z-index: 1;
+  }
+
+  /* ── IDEAS SECTION ── */
+  .ideas-section {
+    background: var(--deep-brown);
+    padding: 7rem 3rem;
+  }
+
+  .ideas-section .section-eyebrow {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 0.75rem;
+    text-align: center;
+  }
+
+  .ideas-section h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 900;
+    color: var(--warm-white);
+    text-align: center;
+    margin-bottom: 0.75rem;
+  }
+
+  .ideas-section .subtitle {
+    text-align: center;
+    color: var(--stone);
+    font-size: 0.95rem;
+    max-width: 480px;
+    margin: 0 auto 4rem;
+    line-height: 1.75;
+  }
+
+  .ideas-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .idea-card {
+    padding: 2rem;
+    border: 1px solid rgba(184,137,42,0.15);
+    background: rgba(28,26,23,0.5);
+  }
+
+  .idea-card h3 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 0.75rem;
+  }
+
+  .idea-card p {
+    font-size: 0.88rem;
+    line-height: 1.8;
+    color: var(--stone-light);
+  }
+
+  /* ── EMAIL SIGNUP ── */
+  .signup {
+    background: var(--charcoal);
+    padding: 6rem 3rem;
+    text-align: center;
+    border-top: 1px solid rgba(184,137,42,0.15);
+  }
+
+  .signup h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.75rem, 3.5vw, 2.75rem);
+    font-weight: 900;
+    font-style: italic;
+    color: var(--warm-white);
+    margin-bottom: 0.75rem;
+  }
+
+  .signup p {
+    font-size: 0.95rem;
+    color: var(--stone);
+    max-width: 380px;
+    margin: 0 auto 2.5rem;
+    line-height: 1.75;
+  }
+
+  .signup-form {
+    display: flex;
+    gap: 0;
+    max-width: 480px;
+    margin: 0 auto;
+  }
+
+  .signup-form input {
+    flex: 1;
+    padding: 1rem 1.5rem;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-right: none;
+    color: var(--cream);
+    font-family: 'Barlow', sans-serif;
+    font-size: 0.9rem;
+    outline: none;
+    transition: border-color 0.2s;
+  }
+
+  .signup-form input:focus { border-color: var(--gold); }
+  .signup-form input::placeholder { color: var(--stone); }
+
+  .signup-form button {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.82rem;
+    font-weight: 700;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    background: var(--gold);
+    color: var(--charcoal);
+    border: none;
+    padding: 1rem 1.75rem;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: background 0.2s;
+  }
+
+  .signup-form button:hover { background: var(--gold-light); }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--deep-brown);
+    padding: 3rem 3rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid rgba(184,137,42,0.1);
+  }
+
+  .footer-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem;
+    font-weight: 900;
+    letter-spacing: 0.12em;
+    color: var(--gold);
+  }
+
+  footer p {
+    font-size: 0.8rem;
+    color: var(--stone);
+    letter-spacing: 0.05em;
+  }
+
+  .footer-links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+  }
+
+  .footer-links a {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--stone);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .footer-links a:hover { color: var(--gold); }
+
+  /* ── CUSTOM DESIGN STUDIO ── */
+  .custom-studio {
+    background: #0E0C0A;
+    padding: 7rem 3rem;
+    position: relative;
+    overflow: hidden;
+    border-top: 1px solid rgba(184,137,42,0.15);
+    border-bottom: 1px solid rgba(184,137,42,0.15);
+  }
+
+  .custom-studio::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse 70% 60% at 50% 100%, rgba(184,137,42,0.07) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .studio-header {
+    text-align: center;
+    margin-bottom: 3.5rem;
+    position: relative;
+    z-index: 2;
+  }
+
+  .studio-header .section-eyebrow {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 0.75rem;
+  }
+
+  .studio-header h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 900;
+    color: var(--warm-white);
+    margin-bottom: 0.75rem;
+  }
+
+  .studio-header p {
+    color: var(--stone);
+    font-size: 0.95rem;
+    max-width: 520px;
+    margin: 0 auto;
+    line-height: 1.75;
+  }
+
+  .studio-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    max-width: 1100px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+    align-items: start;
+  }
+
+  .studio-controls {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .studio-field label {
+    display: block;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 0.6rem;
+  }
+
+  .studio-field textarea,
+  .studio-field input[type="text"],
+  .studio-field select {
+    width: 100%;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(184,137,42,0.25);
+    color: var(--cream);
+    font-family: 'Barlow', sans-serif;
+    font-size: 0.95rem;
+    padding: 0.9rem 1.1rem;
+    outline: none;
+    transition: border-color 0.2s;
+    -webkit-appearance: none;
+    appearance: none;
+  }
+
+  .studio-field textarea { resize: vertical; min-height: 90px; line-height: 1.7; }
+  .studio-field textarea:focus,
+  .studio-field input[type="text"]:focus,
+  .studio-field select:focus { border-color: var(--gold); background: rgba(184,137,42,0.04); }
+  .studio-field textarea::placeholder,
+  .studio-field input[type="text"]::placeholder { color: var(--stone); }
+
+  .studio-field select option { background: #1C1A17; color: var(--cream); }
+
+  .style-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+  }
+
+  .style-pill {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 0.5rem 1rem;
+    border: 1px solid rgba(184,137,42,0.25);
+    background: transparent;
+    color: var(--stone-light);
+    cursor: pointer;
+    transition: all 0.18s;
+  }
+
+  .style-pill:hover,
+  .style-pill.active {
+    border-color: var(--gold);
+    background: rgba(184,137,42,0.12);
+    color: var(--gold);
+  }
+
+  .garment-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.75rem;
+  }
+
+  .generate-btn {
+    width: 100%;
+    padding: 1.1rem;
+    background: var(--gold);
+    color: var(--charcoal);
+    border: none;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 700;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.15s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.6rem;
+  }
+
+  .generate-btn:hover:not(:disabled) { background: var(--gold-light); transform: translateY(-1px); }
+  .generate-btn:disabled { opacity: 0.5; cursor: not-allowed; transform: none; }
+
+  .generate-btn .btn-spinner {
+    width: 16px; height: 16px;
+    border: 2px solid rgba(28,26,23,0.3);
+    border-top-color: var(--charcoal);
+    border-radius: 50%;
+    animation: spin 0.7s linear infinite;
+    display: none;
+  }
+
+  .generate-btn.loading .btn-spinner { display: block; }
+  .generate-btn.loading .btn-label { opacity: 0.6; }
+
+  @keyframes spin { to { transform: rotate(360deg); } }
+
+  /* Preview Panel */
+  .preview-panel {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+
+  .tshirt-mockup {
+    position: relative;
+    width: 100%;
+    background: var(--deep-brown);
+    border: 1px solid rgba(184,137,42,0.15);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 420px;
+    overflow: hidden;
+  }
+
+  .mockup-empty {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    text-align: center;
+    padding: 3rem;
+  }
+
+  .mockup-empty-icon {
+    font-size: 4rem;
+    opacity: 0.15;
+    font-family: serif;
+  }
+
+  .mockup-empty p {
+    font-size: 0.85rem;
+    color: var(--stone);
+    max-width: 220px;
+    line-height: 1.7;
+  }
+
+  .mockup-loading {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.25rem;
+    text-align: center;
+    padding: 3rem;
+  }
+
+  .mockup-loading-ring {
+    width: 56px; height: 56px;
+    border: 2px solid rgba(184,137,42,0.2);
+    border-top-color: var(--gold);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+  }
+
+  .mockup-loading p {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--stone);
+  }
+
+  .mockup-loading .loading-sub {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 0.85rem;
+    color: var(--stone-light);
+    max-width: 200px;
+    letter-spacing: 0;
+    text-transform: none;
+    font-weight: 400;
+  }
+
+  .mockup-result {
+    display: none;
+    width: 100%;
+    height: 100%;
+    position: relative;
+  }
+
+  /* SVG T-shirt shape */
+  .tshirt-svg-wrap {
+    position: relative;
+    width: 100%;
+    padding: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .tshirt-svg-wrap svg {
+    width: 100%;
+    max-width: 300px;
+  }
+
+  .design-on-shirt {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -42%);
+    width: 44%;
+    text-align: center;
+    pointer-events: none;
+  }
+
+  .design-image-preview {
+    width: 100%;
+    border-radius: 2px;
+    display: block;
+  }
+
+  /* Result actions */
+  .result-actions {
+    display: none;
+    gap: 0.75rem;
+  }
+
+  .result-actions.visible { display: flex; }
+
+  .action-btn {
+    flex: 1;
+    padding: 0.85rem;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    cursor: pointer;
+    border: 1px solid rgba(184,137,42,0.3);
+    background: transparent;
+    color: var(--stone-light);
+    transition: all 0.18s;
+  }
+
+  .action-btn:hover { border-color: var(--gold); color: var(--gold); }
+
+  .action-btn.primary {
+    background: var(--gold);
+    color: var(--charcoal);
+    border-color: var(--gold);
+  }
+
+  .action-btn.primary:hover { background: var(--gold-light); border-color: var(--gold-light); }
+
+  /* Order modal */
+  .modal-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.8);
+    z-index: 200;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+  }
+
+  .modal-overlay.open { display: flex; }
+
+  .modal-box {
+    background: var(--deep-brown);
+    border: 1px solid rgba(184,137,42,0.25);
+    max-width: 520px;
+    width: 100%;
+    padding: 2.5rem;
+    position: relative;
+    max-height: 90vh;
+    overflow-y: auto;
+  }
+
+  .modal-close {
+    position: absolute;
+    top: 1.25rem; right: 1.25rem;
+    background: none; border: none;
+    color: var(--stone); cursor: pointer;
+    font-size: 1.4rem; line-height: 1;
+    transition: color 0.2s;
+  }
+
+  .modal-close:hover { color: var(--cream); }
+
+  .modal-box h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.6rem;
+    font-weight: 900;
+    color: var(--warm-white);
+    margin-bottom: 0.4rem;
+  }
+
+  .modal-box .modal-sub {
+    font-size: 0.85rem;
+    color: var(--stone);
+    margin-bottom: 2rem;
+    line-height: 1.6;
+  }
+
+  .modal-design-preview {
+    background: rgba(0,0,0,0.3);
+    border: 1px solid rgba(184,137,42,0.15);
+    padding: 1rem;
+    margin-bottom: 1.75rem;
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+  }
+
+  .modal-design-preview img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+  }
+
+  .modal-design-text h4 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--cream);
+    margin-bottom: 0.3rem;
+  }
+
+  .modal-design-text p {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 0.8rem;
+    color: var(--stone-light);
+    line-height: 1.5;
+  }
+
+  .modal-field {
+    margin-bottom: 1.1rem;
+  }
+
+  .modal-field label {
+    display: block;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 0.5rem;
+  }
+
+  .modal-field input,
+  .modal-field select {
+    width: 100%;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(184,137,42,0.2);
+    color: var(--cream);
+    font-family: 'Barlow', sans-serif;
+    font-size: 0.9rem;
+    padding: 0.8rem 1rem;
+    outline: none;
+    -webkit-appearance: none;
+  }
+
+  .modal-field input:focus,
+  .modal-field select:focus { border-color: var(--gold); }
+
+  .modal-field input::placeholder { color: var(--stone); }
+  .modal-field select option { background: #1C1A17; }
+
+  .modal-row { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; }
+
+  .modal-submit {
+    width: 100%;
+    padding: 1rem;
+    margin-top: 0.5rem;
+    background: var(--gold);
+    color: var(--charcoal);
+    border: none;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.88rem;
+    font-weight: 700;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+
+  .modal-submit:hover { background: var(--gold-light); }
+
+  .modal-success {
+    display: none;
+    text-align: center;
+    padding: 2rem 0;
+  }
+
+  .modal-success .success-icon {
+    font-size: 3rem;
+    color: var(--gold);
+    margin-bottom: 1rem;
+  }
+
+  .modal-success h4 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    font-weight: 900;
+    color: var(--warm-white);
+    margin-bottom: 0.75rem;
+  }
+
+  .modal-success p {
+    font-size: 0.9rem;
+    color: var(--stone-light);
+    line-height: 1.75;
+    max-width: 340px;
+    margin: 0 auto;
+  }
+
+  /* Pure CSS cross — no emoji, no unicode, works on every device */
+  .css-cross {
+    display: inline-block;
+    position: relative;
+    width: 0.75em;
+    height: 1em;
+    vertical-align: middle;
+  }
+  .css-cross::before,
+  .css-cross::after {
+    content: '';
+    position: absolute;
+    background: currentColor;
+    border-radius: 1px;
+  }
+  /* Vertical bar */
+  .css-cross::before {
+    width: 18%;
+    height: 100%;
+    left: 50%;
+    top: 0;
+    transform: translateX(-50%);
+  }
+  /* Horizontal bar */
+  .css-cross::after {
+    width: 100%;
+    height: 18%;
+    top: 28%;
+    left: 0;
+  }
+
+  /* Larger cross for hero background */
+  .hero-cross .css-cross {
+    width: 8rem;
+    height: 10rem;
+  }
+
+  /* Pillar icons */
+  .pillar-icon .css-cross {
+    width: 1rem;
+    height: 1.3rem;
+  }
+
+  /* Product placeholder */
+  .product-symbol .css-cross {
+    width: 2.5rem;
+    height: 3.2rem;
+  }
+
+  .buy-now-btn {
+    font-family:'Barlow Condensed',sans-serif;font-size:.72rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;
+    color:var(--charcoal);background:var(--gold);padding:.4rem .9rem;text-decoration:none;display:inline-block;transition:background .2s,transform .15s;
+  }
+  .buy-now-btn:hover { background:var(--gold-light); transform:translateY(-1px); }
+
+  @media (max-width: 900px) {
+    nav { padding: 1rem 1.5rem; }
+    .nav-links { display: none; }
+    .hero { padding: 7rem 1.5rem 3rem; }
+    .about-strip { grid-template-columns: 1fr; padding: 4rem 1.5rem; gap: 3rem; }
+    .products-grid { grid-template-columns: repeat(2, 1fr); }
+    .ideas-grid { grid-template-columns: 1fr; }
+    .collection, .ideas-section, .signup { padding: 4rem 1.5rem; }
+    footer { flex-direction: column; gap: 1.5rem; text-align: center; padding: 2rem 1.5rem; }
+    .footer-links { justify-content: center; flex-wrap: wrap; }
+    .verse-banner { padding: 4rem 1.5rem; }
+    .signup-form { flex-direction: column; }
+    .signup-form input { border-right: 1px solid rgba(255,255,255,0.12); border-bottom: none; }
+  }
+
+  /* ═══════════════════════════════════════════════════
+     PREMIUM UPGRADE
+  ═══════════════════════════════════════════════════ */
+  :root {
+    --foil: linear-gradient(100deg, #9a6f1c 0%, #e9cf85 28%, #b8892a 48%, #f3e2a6 62%, #a97a20 100%);
+    --ease-out: cubic-bezier(.16, 1, .3, 1);
+    --thick: 12px;
+  }
+
+  body { font-weight: 400; -webkit-font-smoothing: antialiased; }
+
+  /* soft film grain over everything */
+  body::after {
+    content: '';
+    position: fixed; inset: 0;
+    pointer-events: none;
+    z-index: 999;
+    opacity: .05;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='180' height='180'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 .9 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+  }
+
+  a:focus-visible, button:focus-visible { outline: 2px solid var(--gold-light); outline-offset: 4px; }
+
+  /* ── NAV ── */
+  nav {
+    background: transparent;
+    backdrop-filter: none;
+    border-bottom: 1px solid transparent;
+    padding: 1.6rem 3rem;
+    transition: background .5s, padding .5s var(--ease-out), border-color .5s, backdrop-filter .5s;
+  }
+  nav.scrolled {
+    background: rgba(20, 17, 14, .8);
+    backdrop-filter: blur(16px) saturate(1.3);
+    -webkit-backdrop-filter: blur(16px) saturate(1.3);
+    border-bottom-color: rgba(184, 137, 42, .2);
+    padding-top: .9rem; padding-bottom: .9rem;
+  }
+  .nav-logo { font-size: 1.75rem; letter-spacing: .22em; }
+  .nav-cart { text-decoration: none; display: inline-block; }
+  .nav-links a { position: relative; padding: .35rem 0; }
+  .nav-links a::after {
+    content: ''; position: absolute; left: 0; right: 0; bottom: 0; height: 1px;
+    background: var(--gold);
+    transform: scaleX(0); transform-origin: left;
+    transition: transform .45s var(--ease-out);
+  }
+  .nav-links a:hover::after { transform: scaleX(1); }
+
+  /* ── BUTTONS ── */
+  .btn-primary, .buy-lg { position: relative; overflow: hidden; }
+  .btn-primary::after, .buy-lg::after {
+    content: ''; position: absolute; top: 0; left: -60%;
+    width: 40%; height: 100%;
+    background: linear-gradient(100deg, transparent, rgba(255,255,255,.5), transparent);
+    transform: skewX(-20deg);
+    transition: left .9s var(--ease-out);
+    pointer-events: none;
+  }
+  .btn-primary:hover::after, .buy-lg:hover::after { left: 130%; }
+
+  /* ── HERO ── */
+  .hero {
+    display: grid;
+    grid-template-columns: minmax(0, 1.05fr) minmax(0, .95fr);
+    gap: 3rem;
+    align-items: center;
+    padding: 9rem 4rem 5rem;
+  }
+  .hero-content { max-width: none; }
+  .hero-glow {
+    position: absolute; inset: 0; pointer-events: none;
+    background: radial-gradient(620px circle at var(--mx, 68%) var(--my, 40%), rgba(212,170,80,.11), transparent 62%);
+    transition: background .2s;
+  }
+  .hero-eyebrow { animation: rise 1s var(--ease-out) .1s both; }
+  .hero-title {
+    font-size: clamp(5.5rem, 13vw, 12.5rem);
+    line-height: .84;
+    letter-spacing: -.035em;
+    margin-bottom: .6rem;
+  }
+  .hero-title em {
+    display: inline-block;
+    padding: 0 .1em .1em 0;
+    font-weight: 900;
+    background: var(--foil);
+    background-size: 240% 100%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+    animation: curtain 1.5s var(--ease-out) .25s both, foil 8s linear 1.8s infinite;
+  }
+  .hero-title-sub { animation: rise 1s var(--ease-out) .75s both; }
+  .hero-verse     { animation: rise 1s var(--ease-out) .95s both; }
+  .hero-ctas      { animation: rise 1s var(--ease-out) 1.15s both; }
+
+  @keyframes rise   { from { opacity: 0; transform: translateY(22px); } to { opacity: 1; transform: none; } }
+  @keyframes curtain {
+    from { clip-path: inset(0 0 100% 0); transform: translateY(.2em); }
+    to   { clip-path: inset(-15% -15% -15% -15%); transform: none; }
+  }
+  @keyframes foil { from { background-position: 0% 0; } to { background-position: -240% 0; } }
+  @keyframes spin { to { transform: rotate(360deg); } }
+
+  .hero-stage {
+    position: relative; z-index: 2;
+    display: flex; justify-content: center; align-items: center;
+    animation: rise 1.2s var(--ease-out) .5s both;
+  }
+  .hero-stage .viewer { width: min(430px, 100%); }
+  .hero-ring {
+    position: absolute; left: 50%; top: 46%;
+    width: min(560px, 118%); aspect-ratio: 1;
+    margin: calc(min(560px, 118%) / -2) 0 0 calc(min(560px, 118%) / -2);
+    border-radius: 50%;
+    border: 1px dashed rgba(184,137,42,.3);
+    animation: spin 90s linear infinite;
+    pointer-events: none;
+  }
+  .hero-ring::after {
+    content: ''; position: absolute; top: -4px; left: 50%;
+    width: 8px; height: 8px; margin-left: -4px; border-radius: 50%;
+    background: var(--gold-light); box-shadow: 0 0 14px 2px rgba(212,170,80,.7);
+  }
+
+  /* ── 3D VIEWER ── */
+  .viewer { position: relative; }
+  .viewer::before {
+    content: ''; position: absolute; inset: -10% -20% 0;
+    background: radial-gradient(closest-side, rgba(212,170,80,.17), transparent 75%);
+    pointer-events: none;
+  }
+  .viewer-stage {
+    position: relative; width: 100%; aspect-ratio: 5 / 6;
+    perspective: 1500px;
+    cursor: grab;
+    touch-action: pan-y;
+    -webkit-user-select: none; user-select: none;
+    outline: none;
+  }
+  .viewer-stage.dragging { cursor: grabbing; }
+  .viewer-stage:focus-visible { outline: 2px solid var(--gold-light); outline-offset: 10px; }
+  .viewer-obj {
+    position: absolute; inset: 0;
+    transform-style: preserve-3d;
+    will-change: transform;
+  }
+  .vface {
+    position: absolute; inset: 0;
+    backface-visibility: hidden; -webkit-backface-visibility: hidden;
+    overflow: hidden;
+    background: #241d16;
+    border-radius: 2px;
+    box-shadow: inset 0 0 0 1px rgba(255,255,255,.07);
+  }
+  .vfront { transform: translateZ(calc(var(--thick) / 2)); }
+  .vback  { transform: rotateY(180deg) translateZ(calc(var(--thick) / 2)); }
+  .vface img {
+    width: 100%; height: 100%; object-fit: cover; display: block;
+    pointer-events: none; -webkit-user-drag: none;
+  }
+  /* moving highlight */
+  .vface::after {
+    content: ''; position: absolute; inset: 0; pointer-events: none;
+    background: linear-gradient(105deg,
+      transparent calc(var(--sx, 50%) - 24%),
+      rgba(255,255,255,.15) var(--sx, 50%),
+      transparent calc(var(--sx, 50%) + 24%));
+  }
+  /* darkens as the card turns edge-on */
+  .vface::before {
+    content: ''; position: absolute; inset: 0; z-index: 1; pointer-events: none;
+    background: #000; opacity: var(--shade, 0);
+  }
+  .vedge { position: absolute; background: linear-gradient(90deg, #6b4e14, #dcb85f 45%, #8f6a1c); }
+  .vl { left: 0;  top: 0;    width: var(--thick); height: 100%; transform: translateX(calc(var(--thick) / -2)) rotateY(-90deg); }
+  .vr { right: 0; top: 0;    width: var(--thick); height: 100%; transform: translateX(calc(var(--thick) / 2)) rotateY(90deg); }
+  .vt { left: 0;  top: 0;    width: 100%; height: var(--thick); transform: translateY(calc(var(--thick) / -2)) rotateX(90deg); }
+  .vb { left: 0;  bottom: 0; width: 100%; height: var(--thick); transform: translateY(calc(var(--thick) / 2)) rotateX(-90deg); }
+
+  .viewer-floor {
+    position: absolute; left: 10%; right: 10%; bottom: -7%; height: 8%;
+    background: radial-gradient(ellipse at center, rgba(0,0,0,.7), transparent 70%);
+    filter: blur(7px);
+    pointer-events: none;
+  }
+  .viewer-ui {
+    display: flex; align-items: center; justify-content: space-between;
+    margin-top: 2.4rem;
+  }
+  .viewer-hint {
+    display: inline-flex; align-items: center; gap: .85rem;
+    font-family: 'Playfair Display', serif; font-style: italic; font-size: .95rem;
+    color: var(--stone-light);
+    transition: opacity .6s;
+  }
+  .hint-track { position: relative; width: 44px; height: 1px; background: rgba(184,137,42,.4); }
+  .hint-track::after {
+    content: ''; position: absolute; top: -3px; left: 0; width: 7px; height: 7px; border-radius: 50%;
+    background: var(--gold-light);
+    animation: nudge 2.4s var(--ease-out) infinite;
+  }
+  @keyframes nudge { 0%, 100% { transform: translateX(0); } 50% { transform: translateX(37px); } }
+  .viewer.used .viewer-hint { opacity: 0; }
+  .viewer-flip {
+    background: none; cursor: pointer;
+    border: 1px solid rgba(184,137,42,.45); color: var(--gold-light);
+    padding: .5rem 1.1rem;
+    font-family: 'Barlow Condensed', sans-serif; font-size: .78rem; font-weight: 600; letter-spacing: .16em; text-transform: uppercase;
+    transition: background .3s, color .3s;
+  }
+  .viewer-flip:hover { background: var(--gold); color: var(--charcoal); }
+
+  /* ── MARQUEE ── */
+  .marquee-wrap {
+    background: var(--charcoal);
+    border-top: 1px solid rgba(184,137,42,.25);
+    border-bottom: 1px solid rgba(184,137,42,.25);
+    padding: 1.2rem 0;
+    display: flex;
+  }
+  .marquee-track {
+    display: flex; flex-shrink: 0; min-width: 100%;
+    animation: marquee2 42s linear infinite;
+    font-family: 'Playfair Display', serif; font-style: italic; font-weight: 700;
+    font-size: 1.7rem; letter-spacing: .01em; text-transform: none;
+    color: var(--gold-light);
+  }
+  .marquee-track span { padding: 0 1.4rem; white-space: nowrap; }
+  .marquee-track i { font-style: normal; color: var(--rust); font-size: .55em; align-self: center; }
+  .marquee-wrap:hover .marquee-track { animation-play-state: paused; }
+  @keyframes marquee2 { from { transform: translateX(0); } to { transform: translateX(-100%); } }
+
+  /* ── ABOUT ── */
+  .pillar { transition: transform .5s var(--ease-out), border-color .4s, background .4s; }
+  .pillar:hover { transform: translateY(-5px); border-color: rgba(184,137,42,.55); background: rgba(184,137,42,.07); }
+  .idea-card { transition: transform .5s var(--ease-out), border-color .4s; }
+  .idea-card:hover { transform: translateY(-5px); }
+
+  /* ── SHOP ── */
+  .collection { padding: 8rem 4rem 3rem; overflow: hidden; }
+  .collection.alt { background: var(--deep-brown); padding-top: 6rem; }
+  .shop-head { max-width: 1240px; margin: 0 auto 5.5rem; }
+  .shop-kicker { font-family: 'Playfair Display', serif; font-style: italic; font-size: 1.05rem; color: var(--gold); margin-bottom: .7rem; }
+  .shop-head h2 {
+    font-family: 'Playfair Display', serif; font-weight: 900;
+    font-size: clamp(2.6rem, 6vw, 5rem); line-height: 1; letter-spacing: -.02em;
+    color: var(--warm-white);
+  }
+  .shop-rule { display: block; height: 1px; margin-top: 1.8rem; background: linear-gradient(90deg, var(--gold), transparent 70%); transform-origin: left; }
+  .js .shop-head .shop-rule { transform: scaleX(0); transition: transform 1.6s var(--ease-out) .2s; }
+  .js .shop-head.in .shop-rule { transform: scaleX(1); }
+
+  .showcase {
+    display: grid;
+    grid-template-columns: minmax(0, 1.05fr) minmax(0, .95fr);
+    gap: 5.5rem; align-items: center;
+    max-width: 1240px; margin: 0 auto 8rem;
+  }
+  .showcase.reverse { grid-template-columns: minmax(0, .95fr) minmax(0, 1.05fr); }
+  .showcase.reverse .viewer { order: 2; }
+  .showcase .viewer { width: min(500px, 100%); justify-self: center; }
+
+  .showcase-tag {
+    display: inline-flex; align-items: center; gap: .55rem;
+    font-family: 'Barlow Condensed', sans-serif; font-size: .78rem; font-weight: 600; letter-spacing: .16em; text-transform: uppercase;
+    color: var(--gold-light); margin-bottom: 1.1rem;
+  }
+  .showcase-tag::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--gold-light); box-shadow: 0 0 10px rgba(212,170,80,.9); }
+  .showcase-name {
+    font-family: 'Playfair Display', serif; font-weight: 900;
+    font-size: clamp(2.5rem, 4.6vw, 4rem); line-height: 1; letter-spacing: -.02em;
+    color: var(--warm-white); margin-bottom: 1.5rem;
+  }
+  .showcase-verse {
+    font-family: 'Playfair Display', serif; font-style: italic;
+    font-size: 1.1rem; line-height: 1.85; color: var(--stone-light);
+    max-width: 30rem; padding-left: 1.3rem; border-left: 1px solid rgba(184,137,42,.55);
+    margin-bottom: 2.2rem;
+  }
+  .showcase-verse cite { display: block; font-style: normal; font-family: 'Barlow', sans-serif; font-size: .82rem; letter-spacing: .05em; color: var(--gold); margin-top: .6rem; }
+  .showcase-price { font-family: 'Playfair Display', serif; font-size: 2.3rem; color: var(--warm-white); margin-bottom: 1.6rem; }
+
+  .swatch-row { display: flex; align-items: center; gap: 1rem; margin-bottom: 2.2rem; flex-wrap: wrap; }
+  .color-dot {
+    width: 34px; height: 34px; padding: 0; border: 0; border-radius: 50%;
+    background: var(--dot); cursor: pointer; position: relative; flex-shrink: 0;
+    box-shadow: inset 0 0 0 1px rgba(255,255,255,.2);
+    transition: transform .4s var(--ease-out);
+  }
+  .color-dot::after {
+    content: ''; position: absolute; inset: -6px; border-radius: 50%;
+    border: 1.5px solid var(--gold);
+    opacity: 0; transform: scale(.8);
+    transition: opacity .3s, transform .4s var(--ease-out);
+  }
+  .color-dot.active::after { opacity: 1; transform: none; }
+  .color-dot:hover { transform: scale(1.12); }
+  .swatch-name { font-family: 'Playfair Display', serif; font-style: italic; font-size: 1.05rem; color: var(--stone-light); margin-left: .5rem; }
+
+  .buy-lg { padding: 1.1rem 3.2rem; font-size: .92rem; letter-spacing: .24em; }
+  .showcase-note { margin-top: 1.1rem; font-size: .82rem; color: var(--stone); }
+
+  /* ── SCROLL REVEALS (only when JS is running) ── */
+  .js .showcase-info > * {
+    opacity: 0; transform: translateY(20px);
+    transition: opacity 1s var(--ease-out), transform 1s var(--ease-out);
+    transition-delay: calc(var(--k, 0) * 80ms + 150ms);
+  }
+  .js .showcase.in .showcase-info > * { opacity: 1; transform: none; }
+  .showcase-info > *:nth-child(1) { --k: 0; }
+  .showcase-info > *:nth-child(2) { --k: 1; }
+  .showcase-info > *:nth-child(3) { --k: 2; }
+  .showcase-info > *:nth-child(4) { --k: 3; }
+  .showcase-info > *:nth-child(5) { --k: 4; }
+  .showcase-info > *:nth-child(6) { --k: 5; }
+  .showcase-info > *:nth-child(7) { --k: 6; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    nav { padding: 1.1rem 1.5rem; }
+    .hero { grid-template-columns: 1fr; padding: 7.5rem 1.5rem 4rem; gap: 4rem; }
+    .hero-stage { order: 2; }
+    .collection { padding: 5rem 1.5rem 2rem; }
+    .showcase, .showcase.reverse { grid-template-columns: 1fr; gap: 3.5rem; margin-bottom: 6rem; }
+    .showcase.reverse .viewer { order: 0; }
+    .marquee-track { font-size: 1.3rem; }
+    .hero-ctas { flex-direction: column; }
+    .hero-ctas a { text-align: center; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation-duration: .001s !important; animation-iteration-count: 1 !important; transition-duration: .001s !important; transition-delay: 0s !important; }
+    .marquee-track { animation: none !important; }
+    .hint-track::after { animation: none !important; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="nav">
+  <a href="#" class="nav-logo">CHOSEN</a>
+  <ul class="nav-links">
+    <li><a href="#collection">Shop</a></li>
+    <li><a href="#about">Our Mission</a></li>
+    <li><a href="#custom-design">Custom Design</a></li>
+    <li><a href="#ideas">Collections</a></li>
+    <li><a href="#signup">Join Us</a></li>
+  </ul>
+  <a href="#collection" class="nav-cart">Shop Now</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-bg"></div>
+  <div class="hero-glow"></div>
+  <div class="hero-cross"><span class="css-cross"></span></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow">Faith-Rooted Apparel</div>
+    <h1 class="hero-title"><em>Chosen.</em></h1>
+    <p class="hero-title-sub">Wear what you believe.</p>
+    <blockquote class="hero-verse">
+      "You are a chosen people, a royal priesthood, a holy nation, God's special possession."
+      <cite>— 1 Peter 2:9</cite>
+    </blockquote>
+    <div class="hero-ctas">
+      <a href="#collection" class="btn-primary">Shop the Collection</a>
+      <a href="#about" class="btn-outline">Our Story</a>
+    </div>
+  </div>
+  <div class="hero-stage">
+    <div class="hero-ring" aria-hidden="true"></div>
+    <div class="viewer" data-viewer data-entrance="hero">
+        <div class="viewer-stage" tabindex="0" role="group" aria-label="Psalm 23:4 Tee in Black, interactive view. Drag to spin, or press Enter to flip.">
+          <div class="viewer-obj">
+            <div class="vface vfront"><img id="hero-front" src="psalm-tee-black-front.jpg" alt="Psalm 23:4 Tee in Black, front" draggable="false"></div>
+            <div class="vface vback"><img id="hero-back" src="psalm-tee-black-back.jpg" alt="Psalm 23:4 Tee in Black, back" draggable="false"></div>
+            <i class="vedge vl"></i><i class="vedge vr"></i><i class="vedge vt"></i><i class="vedge vb"></i>
+          </div>
+          <div class="viewer-floor"></div>
+        </div>
+        <div class="viewer-ui">
+          <span class="viewer-hint"><span class="hint-track" aria-hidden="true"></span>Drag to spin</span>
+          <button type="button" class="viewer-flip">Flip</button>
+        </div>
+      </div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee-wrap">
+  <div class="marquee-track" aria-hidden="true"><span>Faith</span><i>&#9670;</i><span>Grace</span><i>&#9670;</i><span>Truth</span><i>&#9670;</i><span>Chosen</span><i>&#9670;</i><span>Redeemed</span><i>&#9670;</i><span>Bold</span><i>&#9670;</i><span>Set Apart</span><i>&#9670;</i><span>Fearless</span><i>&#9670;</i><span>Beloved</span><i>&#9670;</i><span>Anchored</span><i>&#9670;</i></div>
+  <div class="marquee-track" aria-hidden="true"><span>Faith</span><i>&#9670;</i><span>Grace</span><i>&#9670;</i><span>Truth</span><i>&#9670;</i><span>Chosen</span><i>&#9670;</i><span>Redeemed</span><i>&#9670;</i><span>Bold</span><i>&#9670;</i><span>Set Apart</span><i>&#9670;</i><span>Fearless</span><i>&#9670;</i><span>Beloved</span><i>&#9670;</i><span>Anchored</span><i>&#9670;</i></div>
+</div>
+
+<!-- ABOUT -->
+<section class="about-strip" id="about">
+  <div class="about-text">
+    <p class="section-eyebrow">Who We Are</p>
+    <h2>More than clothing.<br>A declaration.</h2>
+    <p>CHOSEN was built for believers who want their faith to be visible — not just in church, but in the streets, at work, and everywhere in between.</p>
+    <p>Every piece we make carries a message rooted in scripture. Real faith. Real quality. Worn with purpose.</p>
+  </div>
+  <div class="about-pillars">
+    <div class="pillar">
+      <div class="pillar-icon">♥</div>
+      <h3>Community Driven</h3>
+      <p>A portion of every sale goes to faith-based outreach programs.</p>
+    </div>
+    <div class="pillar">
+      <div class="pillar-icon"><span class="css-cross"></span></div>
+      <h3>Scripture-First</h3>
+      <p>Every design is grounded in the Word.</p>
+    </div>
+    <div class="pillar">
+      <div class="pillar-icon">+</div>
+      <h3>Made to Last</h3>
+      <p>Premium fabrics built for the long haul, just like your faith.</p>
+    </div>
+    <div class="pillar">
+      <div class="pillar-icon">◆</div>
+      <h3>Bold by Design</h3>
+      <p>Streetwear aesthetics with a message the world can't ignore.</p>
+    </div>
+  </div>
+</section>
+
+<!-- SHEPHERD COLLECTION -->
+<section class="collection" id="collection">
+  <header class="shop-head reveal">
+    <p class="shop-kicker">Drop one, from Psalm 23:4</p>
+    <h2>The Shepherd Collection</h2>
+    <span class="shop-rule"></span>
+  </header>
+  
+    <article class="showcase" data-product="psalm-tee" data-name="Psalm 23:4 Tee">
+      <div class="viewer" data-viewer data-entrance="scroll">
+        <div class="viewer-stage" tabindex="0" role="group" aria-label="Psalm 23:4 Tee in Black, interactive view. Drag to spin, or press Enter to flip.">
+          <div class="viewer-obj">
+            <div class="vface vfront"><img id="psalm-tee-front" src="psalm-tee-black-front.jpg" alt="Psalm 23:4 Tee in Black, front" draggable="false"></div>
+            <div class="vface vback"><img id="psalm-tee-back" src="psalm-tee-black-back.jpg" alt="Psalm 23:4 Tee in Black, back" draggable="false"></div>
+            <i class="vedge vl"></i><i class="vedge vr"></i><i class="vedge vt"></i><i class="vedge vb"></i>
+          </div>
+          <div class="viewer-floor"></div>
+        </div>
+        <div class="viewer-ui">
+          <span class="viewer-hint"><span class="hint-track" aria-hidden="true"></span>Drag to spin</span>
+          <button type="button" class="viewer-flip">Flip</button>
+        </div>
+      </div>
+      <div class="showcase-info">
+        <span class="showcase-tag">New</span>
+        <h3 class="showcase-name">Psalm 23:4 Tee</h3>
+        <blockquote class="showcase-verse">&ldquo;Yea, though I walk through the valley of the shadow of death, I will fear no evil: for thou art with me.&rdquo;<cite>Psalm 23:4</cite></blockquote>
+        <div class="showcase-price">$45</div>
+        <div class="swatch-row" role="group" aria-label="Choose a color">
+            <button type="button" class="color-dot active" style="--dot:#1c1c1c" aria-label="Black" aria-pressed="true" data-color="Black" data-front="psalm-tee-black-front.jpg" data-back="psalm-tee-black-back.jpg" data-link="https://buy.stripe.com/4gM8wPgOngP5e5JciY6EU06"></button>
+            <button type="button" class="color-dot" style="--dot:#f7f4ee" aria-label="White" aria-pressed="false" data-color="White" data-front="psalm-tee-white-front.jpg" data-back="psalm-tee-white-back.jpg" data-link="https://buy.stripe.com/9B63cv55F6ar3r50Ag6EU07"></button>
+            <button type="button" class="color-dot" style="--dot:#1b2a4a" aria-label="Navy" aria-pressed="false" data-color="Navy" data-front="psalm-tee-navy-front.jpg" data-back="psalm-tee-navy-back.jpg" data-link="https://buy.stripe.com/cNifZhbu3eGX8Lp2Io6EU08"></button>
+            <button type="button" class="color-dot" style="--dot:#e3a873" aria-label="Apricot" aria-pressed="false" data-color="Apricot" data-front="psalm-tee-apricot-front.jpg" data-back="psalm-tee-apricot-back.jpg" data-link="https://buy.stripe.com/14AaEXapZfL13r52Io6EU09"></button>
+          <span class="swatch-name" id="psalm-tee-color" aria-live="polite">Black</span>
+        </div>
+        <div><a href="https://buy.stripe.com/4gM8wPgOngP5e5JciY6EU06" target="_blank" rel="noopener" class="buy-now-btn buy-lg" id="psalm-tee-buy">Buy now</a></div>
+        <p class="showcase-note">Secure checkout with Stripe.</p>
+      </div>
+    </article>
+
+  
+    <article class="showcase reverse" data-product="psalm-hoodie" data-name="Psalm 23:4 Hoodie">
+      <div class="viewer" data-viewer data-entrance="scroll">
+        <div class="viewer-stage" tabindex="0" role="group" aria-label="Psalm 23:4 Hoodie in Black, interactive view. Drag to spin, or press Enter to flip.">
+          <div class="viewer-obj">
+            <div class="vface vfront"><img id="psalm-hoodie-front" src="psalm-hoodie-black-front.jpg" alt="Psalm 23:4 Hoodie in Black, front" draggable="false"></div>
+            <div class="vface vback"><img id="psalm-hoodie-back" src="psalm-hoodie-black-back.jpg" alt="Psalm 23:4 Hoodie in Black, back" draggable="false"></div>
+            <i class="vedge vl"></i><i class="vedge vr"></i><i class="vedge vt"></i><i class="vedge vb"></i>
+          </div>
+          <div class="viewer-floor"></div>
+        </div>
+        <div class="viewer-ui">
+          <span class="viewer-hint"><span class="hint-track" aria-hidden="true"></span>Drag to spin</span>
+          <button type="button" class="viewer-flip">Flip</button>
+        </div>
+      </div>
+      <div class="showcase-info">
+        <span class="showcase-tag">New</span>
+        <h3 class="showcase-name">Psalm 23:4 Hoodie</h3>
+        <blockquote class="showcase-verse">&ldquo;Thy rod and thy staff they comfort me.&rdquo;<cite>Psalm 23:4</cite></blockquote>
+        <div class="showcase-price">$60</div>
+        <div class="swatch-row" role="group" aria-label="Choose a color">
+            <button type="button" class="color-dot active" style="--dot:#1c1c1c" aria-label="Black" aria-pressed="true" data-color="Black" data-front="psalm-hoodie-black-front.jpg" data-back="psalm-hoodie-black-back.jpg" data-link="https://buy.stripe.com/00w3cv55FaqH6Dh5UA6EU0a"></button>
+            <button type="button" class="color-dot" style="--dot:#f7f4ee" aria-label="White" aria-pressed="false" data-color="White" data-front="psalm-hoodie-white-front.jpg" data-back="psalm-hoodie-white-back.jpg" data-link="https://buy.stripe.com/28E00jdCb8ize5J82I6EU0b"></button>
+            <button type="button" class="color-dot" style="--dot:#4a3728" aria-label="Coffee" aria-pressed="false" data-color="Coffee" data-front="psalm-hoodie-coffee-front.jpg" data-back="psalm-hoodie-coffee-back.jpg" data-link="https://buy.stripe.com/aFa14n69J0Q7aTx82I6EU0c"></button>
+            <button type="button" class="color-dot" style="--dot:#3b5a80" aria-label="Jeans Blue" aria-pressed="false" data-color="Jeans Blue" data-front="psalm-hoodie-blue-front.jpg" data-back="psalm-hoodie-blue-back.jpg" data-link="https://buy.stripe.com/9B6eVddCb56n2n12Io6EU0d"></button>
+          <span class="swatch-name" id="psalm-hoodie-color" aria-live="polite">Black</span>
+        </div>
+        <div><a href="https://buy.stripe.com/00w3cv55FaqH6Dh5UA6EU0a" target="_blank" rel="noopener" class="buy-now-btn buy-lg" id="psalm-hoodie-buy">Buy now</a></div>
+        <p class="showcase-note">Secure checkout with Stripe.</p>
+      </div>
+    </article>
+
+</section>
+
+<!-- VERSE BANNER -->
+<div class="verse-banner">
+  <blockquote>"For I am not ashamed of the gospel, because it is the power of God that brings salvation."</blockquote>
+  <cite>Romans 1:16</cite>
+</div>
+
+<!-- FISHERS OF MEN COLLECTION -->
+<section class="collection alt" id="fishers">
+  <header class="shop-head reveal">
+    <p class="shop-kicker">Drop two, from Matthew 4:19</p>
+    <h2>Fishers of Men Collection</h2>
+    <span class="shop-rule"></span>
+  </header>
+  
+    <article class="showcase" data-product="fom-tee" data-name="Fishers of Men Tee">
+      <div class="viewer" data-viewer data-entrance="scroll">
+        <div class="viewer-stage" tabindex="0" role="group" aria-label="Fishers of Men Tee in Black, interactive view. Drag to spin, or press Enter to flip.">
+          <div class="viewer-obj">
+            <div class="vface vfront"><img id="fom-tee-front" src="fom-tee-black-front.jpg" alt="Fishers of Men Tee in Black, front" draggable="false"></div>
+            <div class="vface vback"><img id="fom-tee-back" src="fom-tee-black-back.jpg" alt="Fishers of Men Tee in Black, back" draggable="false"></div>
+            <i class="vedge vl"></i><i class="vedge vr"></i><i class="vedge vt"></i><i class="vedge vb"></i>
+          </div>
+          <div class="viewer-floor"></div>
+        </div>
+        <div class="viewer-ui">
+          <span class="viewer-hint"><span class="hint-track" aria-hidden="true"></span>Drag to spin</span>
+          <button type="button" class="viewer-flip">Flip</button>
+        </div>
+      </div>
+      <div class="showcase-info">
+        <span class="showcase-tag">New</span>
+        <h3 class="showcase-name">Fishers of Men Tee</h3>
+        <blockquote class="showcase-verse">&ldquo;Follow me, and I will make you fishers of men.&rdquo;<cite>Matthew 4:19</cite></blockquote>
+        <div class="showcase-price">$45</div>
+        <div class="swatch-row" role="group" aria-label="Choose a color">
+            <button type="button" class="color-dot active" style="--dot:#1c1c1c" aria-label="Black" aria-pressed="true" data-color="Black" data-front="fom-tee-black-front.jpg" data-back="fom-tee-black-back.jpg" data-link="https://buy.stripe.com/00wfZh2Xx2Yf8LpaaQ6EU0e"></button>
+            <button type="button" class="color-dot" style="--dot:#f7f4ee" aria-label="White" aria-pressed="false" data-color="White" data-front="fom-tee-white-front.jpg" data-back="fom-tee-white-back.jpg" data-link="https://buy.stripe.com/14A14n7dNbuL8Lp4Qw6EU0f"></button>
+            <button type="button" class="color-dot" style="--dot:#1b2a4a" aria-label="Navy" aria-pressed="false" data-color="Navy" data-front="fom-tee-navy-front.jpg" data-back="fom-tee-navy-back.jpg" data-link="https://buy.stripe.com/4gMeVd9lVcyP6Dh6YE6EU0g"></button>
+            <button type="button" class="color-dot" style="--dot:#7ec8e3" aria-label="Sky Blue" aria-pressed="false" data-color="Sky Blue" data-front="fom-tee-blue-front.jpg" data-back="fom-tee-blue-back.jpg" data-link="https://buy.stripe.com/eVq6oHcy756n4v96YE6EU0h"></button>
+          <span class="swatch-name" id="fom-tee-color" aria-live="polite">Black</span>
+        </div>
+        <div><a href="https://buy.stripe.com/00wfZh2Xx2Yf8LpaaQ6EU0e" target="_blank" rel="noopener" class="buy-now-btn buy-lg" id="fom-tee-buy">Buy now</a></div>
+        <p class="showcase-note">Secure checkout with Stripe.</p>
+      </div>
+    </article>
+
+</section>
+
+<!-- ═══════════════════════════════════════════
+     AI CUSTOM DESIGN STUDIO
+════════════════════════════════════════════ -->
+<section id="custom-design" style="background:#0E0C0A; padding:7rem 3rem; border-top:1px solid rgba(184,137,42,0.2); border-bottom:1px solid rgba(184,137,42,0.2); position:relative; overflow:hidden;">
+
+  <!-- Coming Soon Overlay -->
+  <div style="position:absolute;inset:0;background:rgba(14,12,10,0.82);z-index:50;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1rem;backdrop-filter:blur(3px);">
+    <div style="border:1px solid rgba(184,137,42,0.4);padding:.4rem 1.25rem;font-family:'Barlow Condensed',sans-serif;font-size:.72rem;font-weight:700;letter-spacing:.35em;text-transform:uppercase;color:var(--gold);">Coming Soon</div>
+    <p style="font-family:'Playfair Display',serif;font-style:italic;font-size:1.1rem;color:var(--stone-light);">AI Design Studio launching shortly</p>
+    <p style="font-family:'Barlow',sans-serif;font-size:.85rem;color:var(--stone);max-width:300px;text-align:center;line-height:1.75;">Type your verse, pick your style, and our AI will design your custom tee — coming very soon.</p>
+  </div>
+  <div style="position:absolute;inset:0;background:radial-gradient(ellipse 70% 50% at 50% 100%,rgba(184,137,42,0.07) 0%,transparent 70%);pointer-events:none;"></div>
+
+  <!-- Header -->
+  <div style="text-align:center; margin-bottom:3.5rem; position:relative; z-index:2;">
+    <p style="font-family:'Barlow Condensed',sans-serif;font-size:.75rem;font-weight:700;letter-spacing:.35em;text-transform:uppercase;color:var(--gold);margin-bottom:.75rem;">AI-Powered</p>
+    <h2 style="font-family:'Playfair Display',serif;font-size:clamp(2rem,4vw,3rem);font-weight:900;color:var(--warm-white);margin-bottom:.75rem;">Design Your Own Tee</h2>
+    <p style="color:var(--stone);font-size:.95rem;max-width:540px;margin:0 auto;line-height:1.8;">Type your favorite Bible verse, choose your style — our AI will generate a custom design. Love it? Order it and we'll print it just for you.</p>
+  </div>
+
+  <!-- Studio Layout -->
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:3rem;max-width:1060px;margin:0 auto;position:relative;z-index:2;" class="studio-grid">
+
+    <!-- LEFT: Controls -->
+    <div style="display:flex;flex-direction:column;gap:1.5rem;">
+
+      <!-- Verse input -->
+      <div>
+        <label style="display:block;font-family:'Barlow Condensed',sans-serif;font-size:.75rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin-bottom:.6rem;">Your Verse or Scripture</label>
+        <textarea id="verseInput" rows="3" placeholder="e.g. &quot;I can do all things through Christ who strengthens me&quot; — Philippians 4:13"
+          style="width:100%;background:rgba(255,255,255,.04);border:1px solid rgba(184,137,42,.25);color:var(--cream);font-family:'Barlow',sans-serif;font-size:.95rem;padding:.9rem 1.1rem;outline:none;resize:vertical;line-height:1.7;transition:border-color .2s;"
+          onfocus="this.style.borderColor='var(--gold)'" onblur="this.style.borderColor='rgba(184,137,42,.25)'"></textarea>
+      </div>
+
+      <!-- Style pills -->
+      <div>
+        <label style="display:block;font-family:'Barlow Condensed',sans-serif;font-size:.75rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin-bottom:.75rem;">Design Style</label>
+        <div style="display:flex;flex-wrap:wrap;gap:.6rem;" id="stylePills">
+          <button class="spill active" onclick="selectStyle(this,'Bold Streetwear')">Bold Streetwear</button>
+          <button class="spill" onclick="selectStyle(this,'Vintage Gospel')">Vintage Gospel</button>
+          <button class="spill" onclick="selectStyle(this,'Minimalist')">Minimalist</button>
+          <button class="spill" onclick="selectStyle(this,'Watercolor')">Watercolor</button>
+          <button class="spill" onclick="selectStyle(this,'Hand Lettered')">Hand Lettered</button>
+          <button class="spill" onclick="selectStyle(this,'Dark & Dramatic')">Dark & Dramatic</button>
+        </div>
+      </div>
+
+      <!-- Garment + Color -->
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:.75rem;">
+        <div>
+          <label style="display:block;font-family:'Barlow Condensed',sans-serif;font-size:.75rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin-bottom:.6rem;">Garment</label>
+          <select id="garmentSelect" style="width:100%;background:rgba(255,255,255,.04);border:1px solid rgba(184,137,42,.25);color:var(--cream);font-family:'Barlow',sans-serif;font-size:.9rem;padding:.85rem 1rem;outline:none;-webkit-appearance:none;transition:border-color .2s;"
+            onfocus="this.style.borderColor='var(--gold)'" onblur="this.style.borderColor='rgba(184,137,42,.25)'">
+            <option value="T-Shirt">T-Shirt</option>
+            <option value="Hoodie">Hoodie</option>
+            <option value="Sweatshirt">Sweatshirt</option>
+            <option value="Tank Top">Tank Top</option>
+          </select>
+        </div>
+        <div>
+          <label style="display:block;font-family:'Barlow Condensed',sans-serif;font-size:.75rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin-bottom:.6rem;">Shirt Color</label>
+          <select id="colorSelect" style="width:100%;background:rgba(255,255,255,.04);border:1px solid rgba(184,137,42,.25);color:var(--cream);font-family:'Barlow',sans-serif;font-size:.9rem;padding:.85rem 1rem;outline:none;-webkit-appearance:none;transition:border-color .2s;"
+            onfocus="this.style.borderColor='var(--gold)'" onblur="this.style.borderColor='rgba(184,137,42,.25)'">
+            <option value="Black">Black</option>
+            <option value="White">White</option>
+            <option value="Charcoal Grey">Charcoal Grey</option>
+            <option value="Cream">Cream</option>
+            <option value="Navy">Navy</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Generate button -->
+      <button id="generateBtn" onclick="generateDesign()"
+        style="width:100%;padding:1.1rem;background:var(--gold);color:var(--charcoal);border:none;font-family:'Barlow Condensed',sans-serif;font-size:.9rem;font-weight:700;letter-spacing:.25em;text-transform:uppercase;cursor:pointer;transition:background .2s,transform .15s;display:flex;align-items:center;justify-content:center;gap:.75rem;">
+        <span id="btnSpinner" style="display:none;width:17px;height:17px;border:2px solid rgba(28,26,23,.3);border-top-color:var(--charcoal);border-radius:50%;animation:spin .7s linear infinite;flex-shrink:0;"></span>
+        <span id="btnLabel">+ Generate My Design</span>
+      </button>
+
+      <!-- Info note -->
+      <p style="font-size:.78rem;color:var(--stone);line-height:1.7;padding-left:1rem;border-left:2px solid rgba(184,137,42,.2);">AI will create a unique graphic concept inspired by your verse and style. Every design is one-of-a-kind — no two are ever the same. <strong style="color:var(--gold-light);">$59 flat · made to order · free to generate.</strong></p>
+    </div>
+
+    <!-- RIGHT: Mockup Preview -->
+    <div style="display:flex;flex-direction:column;gap:1.25rem;">
+
+      <!-- T-shirt mockup canvas -->
+      <div id="mockupBox" style="background:var(--deep-brown);border:1px solid rgba(184,137,42,.15);min-height:400px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;">
+
+        <!-- Empty state -->
+        <div id="emptyState" style="display:flex;flex-direction:column;align-items:center;gap:1rem;text-align:center;padding:3rem;">
+          <div style="font-size:4rem;opacity:.12;font-family:serif;"><span class="css-cross"></span></div>
+          <p style="font-size:.85rem;color:var(--stone);max-width:200px;line-height:1.75;">Enter your verse and hit Generate to see your design come to life</p>
+        </div>
+
+        <!-- Loading state -->
+        <div id="loadingState" style="display:none;flex-direction:column;align-items:center;gap:1.25rem;text-align:center;padding:3rem;">
+          <div style="width:52px;height:52px;border:2px solid rgba(184,137,42,.2);border-top-color:var(--gold);border-radius:50%;animation:spin 1s linear infinite;"></div>
+          <p style="font-family:'Barlow Condensed',sans-serif;font-size:.78rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--stone);">Creating Your Design</p>
+          <p id="loadingVerse" style="font-family:'Playfair Display',serif;font-style:italic;font-size:.85rem;color:var(--stone-light);max-width:210px;line-height:1.6;"></p>
+        </div>
+
+        <!-- Result state -->
+        <div id="resultState" style="display:none;width:100%;height:100%;flex-direction:column;">
+          <!-- Shirt mockup with design overlaid -->
+          <div style="position:relative;display:flex;align-items:center;justify-content:center;padding:2rem;flex:1;">
+            <!-- SVG shirt shape -->
+            <svg id="shirtSvg" viewBox="0 0 220 240" style="width:100%;max-width:260px;filter:drop-shadow(0 8px 24px rgba(0,0,0,.5));">
+              <path id="shirtPath" d="M70,10 L10,45 L30,65 L50,55 L50,230 L170,230 L170,55 L190,65 L210,45 L150,10 Q140,30 110,30 Q80,30 70,10 Z" fill="#1a1a1a" stroke="rgba(184,137,42,0.2)" stroke-width="1"/>
+            </svg>
+            <!-- Generated design image overlaid on chest -->
+            <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-44%);width:38%;pointer-events:none;">
+              <img id="designImg" src="" alt="Generated design" style="width:100%;display:block;border-radius:2px;mix-blend-mode:screen;opacity:.95;">
+            </div>
+          </div>
+          <!-- Verse label under shirt -->
+          <div style="padding:1rem 1.5rem 1.5rem;border-top:1px solid rgba(184,137,42,.1);">
+            <p id="resultVerse" style="font-family:'Playfair Display',serif;font-style:italic;font-size:.85rem;color:var(--gold);line-height:1.6;margin-bottom:.25rem;"></p>
+            <p id="resultMeta" style="font-family:'Barlow Condensed',sans-serif;font-size:.72rem;font-weight:600;letter-spacing:.15em;text-transform:uppercase;color:var(--stone);"></p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Action buttons (shown after generation) -->
+      <div id="actionBtns" style="display:none;gap:.75rem;">
+        <button onclick="regenerate()" style="flex:1;padding:.85rem;font-family:'Barlow Condensed',sans-serif;font-size:.78rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;cursor:pointer;border:1px solid rgba(184,137,42,.3);background:transparent;color:var(--stone-light);transition:all .18s;" onmouseover="this.style.borderColor='var(--gold)';this.style.color='var(--gold)'" onmouseout="this.style.borderColor='rgba(184,137,42,.3)';this.style.color='var(--stone-light)'">↺ Try Again</button>
+        <button onclick="openOrderModal()" style="flex:1;padding:.85rem;font-family:'Barlow Condensed',sans-serif;font-size:.78rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;cursor:pointer;border:none;background:var(--gold);color:var(--charcoal);transition:background .2s;" onmouseover="this.style.background='var(--gold-light)'" onmouseout="this.style.background='var(--gold)'">Order This Design →</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ORDER MODAL -->
+<div id="orderModal" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,.85);z-index:300;align-items:center;justify-content:center;padding:2rem;">
+  <div style="background:var(--deep-brown);border:1px solid rgba(184,137,42,.25);max-width:500px;width:100%;padding:2.5rem;position:relative;max-height:90vh;overflow-y:auto;">
+    <button onclick="closeOrderModal()" style="position:absolute;top:1.25rem;right:1.25rem;background:none;border:none;color:var(--stone);cursor:pointer;font-size:1.5rem;line-height:1;transition:color .2s;" onmouseover="this.style.color='var(--cream)'" onmouseout="this.style.color='var(--stone)'">✕</button>
+
+    <!-- Form -->
+    <div id="modalForm">
+      <h3 style="font-family:'Playfair Display',serif;font-size:1.6rem;font-weight:900;color:var(--warm-white);margin-bottom:.3rem;">Place Your Order</h3>
+      <p style="font-size:.85rem;color:var(--stone);margin-bottom:1.75rem;line-height:1.6;">We'll print your custom design and ship it straight to you. Each piece is made to order — yours alone.</p>
+
+      <!-- Design preview summary -->
+      <div id="modalDesignSummary" style="background:rgba(0,0,0,.3);border:1px solid rgba(184,137,42,.15);padding:1rem 1.25rem;margin-bottom:1.75rem;display:flex;gap:1rem;align-items:center;">
+        <img id="modalThumb" src="" alt="" style="width:70px;height:70px;object-fit:cover;border:1px solid rgba(184,137,42,.2);">
+        <div>
+          <p style="font-family:'Barlow Condensed',sans-serif;font-size:.78rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--cream);margin-bottom:.3rem;">Your Custom Design</p>
+          <p id="modalVerseLabel" style="font-family:'Playfair Display',serif;font-style:italic;font-size:.8rem;color:var(--stone-light);line-height:1.5;"></p>
+        </div>
+      </div>
+
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:.75rem;margin-bottom:.75rem;">
+        <div>
+          <label style="display:block;font-family:'Barlow Condensed',sans-serif;font-size:.72rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:.5rem;">First Name</label>
+          <input type="text" id="oFirstName" placeholder="John" style="width:100%;background:rgba(255,255,255,.05);border:1px solid rgba(184,137,42,.2);color:var(--cream);font-family:'Barlow',sans-serif;font-size:.9rem;padding:.8rem 1rem;outline:none;" onfocus="this.style.borderColor='var(--gold)'" onblur="this.style.borderColor='rgba(184,137,42,.2)'">
+        </div>
+        <div>
+          <label style="display:block;font-family:'Barlow Condensed',sans-serif;font-size:.72rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:.5rem;">Last Name</label>
+          <input type="text" id="oLastName" placeholder="3:16" style="width:100%;background:rgba(255,255,255,.05);border:1px solid rgba(184,137,42,.2);color:var(--cream);font-family:'Barlow',sans-serif;font-size:.9rem;padding:.8rem 1rem;outline:none;" onfocus="this.style.borderColor='var(--gold)'" onblur="this.style.borderColor='rgba(184,137,42,.2)'">
+        </div>
+      </div>
+      <div style="margin-bottom:.75rem;">
+        <label style="display:block;font-family:'Barlow Condensed',sans-serif;font-size:.72rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:.5rem;">Email</label>
+        <input type="text" id="oEmail" placeholder="you@example.com" style="width:100%;background:rgba(255,255,255,.05);border:1px solid rgba(184,137,42,.2);color:var(--cream);font-family:'Barlow',sans-serif;font-size:.9rem;padding:.8rem 1rem;outline:none;" onfocus="this.style.borderColor='var(--gold)'" onblur="this.style.borderColor='rgba(184,137,42,.2)'">
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:.75rem;margin-bottom:.75rem;">
+        <div>
+          <label style="display:block;font-family:'Barlow Condensed',sans-serif;font-size:.72rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:.5rem;">Size</label>
+          <select id="oSize" style="width:100%;background:#2E2419;border:1px solid rgba(184,137,42,.2);color:var(--cream);font-family:'Barlow',sans-serif;font-size:.9rem;padding:.8rem 1rem;outline:none;-webkit-appearance:none;">
+            <option>S</option><option>M</option><option selected>L</option><option>XL</option><option>2XL</option><option>3XL</option>
+          </select>
+        </div>
+        <div>
+          <label style="display:block;font-family:'Barlow Condensed',sans-serif;font-size:.72rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:.5rem;">Qty</label>
+          <select id="oQty" style="width:100%;background:#2E2419;border:1px solid rgba(184,137,42,.2);color:var(--cream);font-family:'Barlow',sans-serif;font-size:.9rem;padding:.8rem 1rem;outline:none;-webkit-appearance:none;">
+            <option>1</option><option>2</option><option>3</option><option>4</option><option>5</option>
+          </select>
+        </div>
+      </div>
+      <div style="margin-bottom:1.5rem;">
+        <label style="display:block;font-family:'Barlow Condensed',sans-serif;font-size:.72rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:.5rem;">Shipping Address</label>
+        <input type="text" id="oAddress" placeholder="123 Faith Lane, Atlanta, GA 30301" style="width:100%;background:rgba(255,255,255,.05);border:1px solid rgba(184,137,42,.2);color:var(--cream);font-family:'Barlow',sans-serif;font-size:.9rem;padding:.8rem 1rem;outline:none;" onfocus="this.style.borderColor='var(--gold)'" onblur="this.style.borderColor='rgba(184,137,42,.2)'">
+      </div>
+      <!-- Price summary -->
+      <div style="display:flex;justify-content:space-between;align-items:center;padding:1rem 1.25rem;background:rgba(184,137,42,0.08);border:1px solid rgba(184,137,42,0.2);margin-bottom:1rem;">
+        <div>
+          <p style="font-family:'Barlow Condensed',sans-serif;font-size:.75rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--stone);margin-bottom:.2rem;">Custom AI Design · Made to Order</p>
+          <p style="font-size:.8rem;color:var(--stone);line-height:1.5;">One-of-a-kind · Includes printing & handling</p>
+        </div>
+        <div style="text-align:right;">
+          <p style="font-family:'Playfair Display',serif;font-size:1.75rem;font-weight:900;color:var(--gold);line-height:1;">$59</p>
+          <p style="font-family:'Barlow Condensed',sans-serif;font-size:.7rem;letter-spacing:.15em;text-transform:uppercase;color:var(--stone);">+ shipping</p>
+        </div>
+      </div>
+
+      <button onclick="submitOrder()" style="width:100%;padding:1rem;background:var(--gold);color:var(--charcoal);border:none;font-family:'Barlow Condensed',sans-serif;font-size:.88rem;font-weight:700;letter-spacing:.25em;text-transform:uppercase;cursor:pointer;transition:background .2s;" onmouseover="this.style.background='var(--gold-light)'" onmouseout="this.style.background='var(--gold)'"><span class="css-cross"></span> Confirm My Order — $59</button>
+    </div>
+
+    <!-- Success state -->
+    <div id="modalSuccess" style="display:none;text-align:center;padding:2rem 0;">
+      <div style="font-size:3rem;margin-bottom:1rem;"><span class="css-cross"></span></div>
+      <h4 style="font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:900;color:var(--warm-white);margin-bottom:.75rem;">Almost There!</h4>
+      <p style="font-size:.9rem;color:var(--stone-light);line-height:1.8;max-width:320px;margin:0 auto 1rem;">Your design details are saved. You're being redirected to our secure Stripe checkout to complete your $59 payment...</p>
+      <div style="display:flex;align-items:center;justify-content:center;gap:.6rem;margin-bottom:1.5rem;">
+        <div style="width:14px;height:14px;border:2px solid rgba(184,137,42,.3);border-top-color:var(--gold);border-radius:50%;animation:spin .8s linear infinite;"></div>
+        <span style="font-family:'Barlow Condensed',sans-serif;font-size:.78rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--stone);">Opening Stripe...</span>
+      </div>
+      <p style="font-family:'Playfair Display',serif;font-style:italic;font-size:.85rem;color:var(--gold);">"Whatever you do, work at it with all your heart." — Colossians 3:23</p>
+    </div>
+  </div>
+</div>
+
+<style>
+  .spill {
+    font-family:'Barlow Condensed',sans-serif;font-size:.78rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;
+    padding:.5rem 1rem;border:1px solid rgba(184,137,42,.25);background:transparent;color:var(--stone-light);cursor:pointer;transition:all .18s;
+  }
+  .spill:hover,.spill.active{border-color:var(--gold);background:rgba(184,137,42,.12);color:var(--gold);}
+  @keyframes spin{to{transform:rotate(360deg);}}
+  @media(max-width:780px){.studio-grid{grid-template-columns:1fr!important;}}
+  #actionBtns{display:flex;}
+</style>
+
+<script>
+  let selectedStyle = 'Bold Streetwear';
+  let currentDesignUrl = '';
+  let currentVerse = '';
+
+  function selectStyle(el, style) {
+    document.querySelectorAll('.spill').forEach(p => p.classList.remove('active'));
+    el.classList.add('active');
+    selectedStyle = style;
+  }
+
+  async function generateDesign() {
+    const verse = document.getElementById('verseInput').value.trim();
+    if (!verse) {
+      document.getElementById('verseInput').style.borderColor = 'var(--rust)';
+      document.getElementById('verseInput').placeholder = '⚠ Please enter a verse first...';
+      setTimeout(() => {
+        document.getElementById('verseInput').style.borderColor = 'rgba(184,137,42,.25)';
+        document.getElementById('verseInput').placeholder = 'e.g. "I can do all things through Christ who strengthens me" — Philippians 4:13';
+      }, 2500);
+      return;
+    }
+
+    currentVerse = verse;
+    const garment = document.getElementById('garmentSelect').value;
+    const color = document.getElementById('colorSelect').value;
+
+    // Update shirt color
+    const shirtColors = { 'Black':'#111','White':'#f5f0e8','Charcoal Grey':'#3a3a3a','Cream':'#e8e0d0','Navy':'#1a2340' };
+    document.getElementById('shirtPath').setAttribute('fill', shirtColors[color] || '#1a1a1a');
+
+    // Show loading
+    document.getElementById('emptyState').style.display = 'none';
+    document.getElementById('resultState').style.display = 'none';
+    document.getElementById('loadingState').style.display = 'flex';
+    document.getElementById('actionBtns').style.display = 'none';
+    document.getElementById('loadingVerse').textContent = '"' + verse.substring(0,60) + (verse.length>60?'…':'"');
+
+    const btn = document.getElementById('generateBtn');
+    btn.disabled = true;
+    document.getElementById('btnSpinner').style.display = 'block';
+    document.getElementById('btnLabel').textContent = 'Creating…';
+
+    try {
+      // Call Claude to generate a detailed image prompt
+      const promptRes = await fetch("https://api.anthropic.com/v1/messages", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          model: "claude-sonnet-4-20250514",
+          max_tokens: 300,
+          messages: [{
+            role: "user",
+            content: `You are a creative director for a Christian streetwear clothing brand called CHOSEN.
+A customer wants a custom t-shirt design based on this verse: "${verse}"
+Style preference: ${selectedStyle}
+Garment: ${garment} (${color})
+
+Write a concise image generation prompt (under 120 words) for creating a graphic design to be printed on the front of this ${garment}. 
+The design should be a striking graphic — NOT a photo of a person or shirt. Think: symbolic, typographic, or illustrated artwork suitable for screen printing.
+Focus on: visual symbols related to the verse, the scripture text styled beautifully, faith-based imagery (cross, light, dove, crown, etc.), consistent with ${selectedStyle} aesthetic.
+Return ONLY the image prompt, nothing else.`
+          }]
+        })
+      });
+
+      const promptData = await promptRes.json();
+      const imagePrompt = promptData.content?.[0]?.text?.trim() || `Christian streetwear graphic design for "${verse}", ${selectedStyle} style, bold typography, cross imagery, golden tones on dark background, screen print art`;
+
+      // Use Claude to generate an SVG/canvas-based design description we render ourselves
+      // Since we can't call image generation APIs, we'll use Claude to create an SVG design
+      const svgRes = await fetch("https://api.anthropic.com/v1/messages", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          model: "claude-sonnet-4-20250514",
+          max_tokens: 2000,
+          messages: [{
+            role: "user",
+            content: `Create a beautiful SVG graphic design for a Christian ${garment} based on this verse: "${verse}"
+Style: ${selectedStyle}
+Shirt color: ${color}
+
+Requirements:
+- Output ONLY a raw SVG element (starting with <svg and ending with </svg>), no other text
+- viewBox="0 0 300 300"
+- Transparent background (no rect fill covering the whole thing)
+- Include: stylized verse text or key words, a symbolic faith icon (cross, dove, rays of light, crown of thorns, anchor, etc.)
+- Use colors that look great on a ${color} shirt: golds (#B8892A, #D4AA50), whites (#FAF8F4), warm creams, deep shadows
+- Make it look like a real screen-print graphic — bold, iconic, wearable
+- ${selectedStyle === 'Minimalist' ? 'Keep it clean and simple with minimal elements' : ''}
+- ${selectedStyle === 'Bold Streetwear' ? 'Make it bold, graphic, high contrast like a streetwear drop' : ''}
+- ${selectedStyle === 'Vintage Gospel' ? 'Use distressed textures, vintage feel, classic church aesthetic' : ''}
+- ${selectedStyle === 'Watercolor' ? 'Use soft, flowing shapes suggesting watercolor washes' : ''}
+- ${selectedStyle === 'Hand Lettered' ? 'Feature the text prominently with a hand-lettered feel' : ''}
+- ${selectedStyle === 'Dark & Dramatic' ? 'Use dramatic contrasts, bold imagery, powerful feel' : ''}
+SVG only:`
+          }]
+        })
+      });
+
+      const svgData = await svgRes.json();
+      let svgContent = svgData.content?.[0]?.text?.trim() || '';
+
+      // Clean up the SVG
+      svgContent = svgContent.replace(/```svg|```xml|```/g, '').trim();
+      if (!svgContent.startsWith('<svg')) {
+        const idx = svgContent.indexOf('<svg');
+        if (idx !== -1) svgContent = svgContent.substring(idx);
+      }
+      const endIdx = svgContent.lastIndexOf('</svg>');
+      if (endIdx !== -1) svgContent = svgContent.substring(0, endIdx + 6);
+
+      // Convert SVG to data URL
+      const blob = new Blob([svgContent], { type: 'image/svg+xml' });
+      const url = URL.createObjectURL(blob);
+      currentDesignUrl = url;
+
+      // Show result
+      document.getElementById('loadingState').style.display = 'none';
+      document.getElementById('resultState').style.display = 'flex';
+      document.getElementById('designImg').src = url;
+      document.getElementById('resultVerse').textContent = '"' + verse.substring(0,80) + (verse.length>80?'…':'"');
+      document.getElementById('resultMeta').textContent = selectedStyle + ' · ' + color + ' ' + garment;
+      document.getElementById('actionBtns').style.display = 'flex';
+
+    } catch (err) {
+      console.error(err);
+      document.getElementById('loadingState').style.display = 'none';
+      document.getElementById('emptyState').style.display = 'flex';
+      document.getElementById('emptyState').innerHTML = '<div style="font-size:2rem;opacity:.4;">⚠</div><p style="font-size:.85rem;color:var(--stone);max-width:200px;line-height:1.75;">Something went wrong. Please try again in a moment.</p>';
+    }
+
+    btn.disabled = false;
+    document.getElementById('btnSpinner').style.display = 'none';
+    document.getElementById('btnLabel').textContent = '+ Generate My Design';
+  }
+
+  function regenerate() {
+    document.getElementById('resultState').style.display = 'none';
+    document.getElementById('actionBtns').style.display = 'none';
+    document.getElementById('emptyState').style.display = 'flex';
+    generateDesign();
+  }
+
+  function openOrderModal() {
+    const modal = document.getElementById('orderModal');
+    modal.style.display = 'flex';
+    document.getElementById('modalThumb').src = currentDesignUrl;
+    const v = currentVerse;
+    document.getElementById('modalVerseLabel').textContent = '"' + v.substring(0,70) + (v.length>70?'…':'"');
+  }
+
+  function closeOrderModal() {
+    document.getElementById('orderModal').style.display = 'none';
+    document.getElementById('modalForm').style.display = 'block';
+    document.getElementById('modalSuccess').style.display = 'none';
+  }
+
+  function submitOrder() {
+    const firstName = document.getElementById("oFirstName").value.trim();
+    const lastName = document.getElementById("oLastName").value.trim();
+    const email = document.getElementById("oEmail").value.trim();
+    const address = document.getElementById("oAddress").value.trim();
+    const size = document.getElementById("oSize").value;
+    const qty = document.getElementById("oQty").value;
+    const garment = document.getElementById("garmentSelect").value;
+    const color = document.getElementById("colorSelect").value;
+
+    if (!firstName || !email || !address) {
+      alert("Please fill in your name, email, and address to continue.");
+      return;
+    }
+
+    // ✏️  Replace with your real Stripe Payment Link URL
+    const STRIPE_LINK = "https://buy.stripe.com/YOUR_STRIPE_PAYMENT_LINK";
+
+    const orderDetails = {
+      name: firstName + " " + lastName,
+      email, address, size, qty, garment, color,
+      verse: currentVerse,
+      style: selectedStyle,
+      orderId: "CHO-" + Date.now().toString().slice(-6)
+    };
+    sessionStorage.setItem("chosenOrder", JSON.stringify(orderDetails));
+
+    // Show success message then open Stripe in new tab
+    document.getElementById("modalForm").style.display = "none";
+    document.getElementById("modalSuccess").style.display = "block";
+
+    const params = new URLSearchParams({ prefilled_email: email });
+    setTimeout(() => {
+      window.open(STRIPE_LINK + "?" + params.toString(), "_blank");
+    }, 2200);
+  }
+
+  // Close modal on overlay click
+  document.getElementById('orderModal').addEventListener('click', function(e) {
+    if (e.target === this) closeOrderModal();
+  });
+</script>
+
+<!-- COLLECTION IDEAS -->
+<section class="ideas-section" id="ideas">
+  <p class="section-eyebrow">Vision Board</p>
+  <h2>Collection Ideas</h2>
+  <p class="subtitle">Here are some directions we could grow into — tag us on Instagram and let us know which one speaks to you!</p>
+  <div class="ideas-grid">
+    <div class="idea-card">
+      <h3>🏛 The Armor Drop</h3>
+      <p>Inspired by Ephesians 6 — the Full Armor of God. Each piece (belt, breastplate, shield, helmet) becomes a garment in a matching set. Structured, bold, military-adjacent aesthetic.</p>
+    </div>
+    <div class="idea-card">
+      <h3>📖 Verse Series</h3>
+      <p>Rotating drops anchored to one power verse per season. Typography-led designs where the scripture itself becomes the visual statement. Clean and wearable for any occasion.</p>
+    </div>
+    <div class="idea-card">
+      <h3>🌿 The Roots Collection</h3>
+      <p>Heritage-inspired pieces that connect faith to Black church tradition, gospel music, and community. Rich earth tones, hand-lettered styles, deep cultural resonance.</p>
+    </div>
+    <div class="idea-card">
+      <h3>🔥 Revival Streetwear</h3>
+      <p>Fire and bold graphic tees that look like streetwear but carry a gospel message. Think Supreme meets the Great Commission. For the young believer who lives in the culture.</p>
+    </div>
+    <div class="idea-card">
+      <h3>🕊 Still Small Voice</h3>
+      <p>A minimalist, quiet luxury line. Subtle embossed crosses, tonal embroidery, linen and heavyweight cotton. Faith for those who prefer to let their life — not their shirt — do the talking.</p>
+    </div>
+    <div class="idea-card">
+      <h3>🏆 Athletes of Faith</h3>
+      <p>Performance and athletic gear for the believer who trains hard. Moisture-wicking tees, compression gear, and gym bags printed with Philippians 4:13. Built for champions.</p>
+    </div>
+  </div>
+</section>
+
+<!-- SIGNUP -->
+<section class="signup" id="signup" style="position:relative;">
+  <!-- Coming Soon Overlay -->
+  <div style="position:absolute;inset:0;background:rgba(14,12,10,0.82);z-index:10;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1rem;backdrop-filter:blur(3px);">
+    <div style="border:1px solid rgba(184,137,42,0.4);padding:.4rem 1.25rem;font-family:'Barlow Condensed',sans-serif;font-size:.72rem;font-weight:700;letter-spacing:.35em;text-transform:uppercase;color:var(--gold);">Coming Soon</div>
+    <p style="font-family:'Playfair Display',serif;font-style:italic;font-size:1.1rem;color:var(--stone-light);">Email list launching shortly</p>
+  </div>
+  <h2>Be First to Know.</h2>
+  <p>Join the CHOSEN community — early access, launch announcements, and faith-filled content straight to your inbox.</p>
+  <div class="signup-form">
+    <input type="email" placeholder="Enter your email address">
+    <button type="button">Join the Movement</button>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">CHOSEN</div>
+  <p>© 2025 Chosen Apparel Co. — Wear what you believe.</p>
+  <ul class="footer-links">
+    <li><a href="#">Instagram</a></li>
+    <li><a href="#">TikTok</a></li>
+    <li><a href="#">Contact</a></li>
+    <li><a href="#">FAQ</a></li>
+  </ul>
+</footer>
+
+
+<script>
+/* ═══ CHOSEN — premium interactions ═══ */
+(function () {
+  'use strict';
+
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var RAD = Math.PI / 180;
+
+  /* ───────── 3D product viewers ───────── */
+  var viewers = [];
+
+  function Viewer(root) {
+    var stage = root.querySelector('.viewer-stage');
+    var obj = root.querySelector('.viewer-obj');
+    var floor = root.querySelector('.viewer-floor');
+    var flipBtn = root.querySelector('.viewer-flip');
+    var entrance = root.getAttribute('data-entrance');
+
+    var s = {
+      y: 0, target: 0, vy: 0,          // spin (degrees) + coasting velocity
+      tx: 0, ty: 0, ttx: 0, tty: 0,    // hover tilt (current / target)
+      drag: false, coast: false, hover: false,
+      lastX: 0, visible: false, entered: false,
+      t: Math.random() * 6
+    };
+    this.s = s;
+    this.root = root;
+
+    /* turning in: heroes swing round on load, shop items swing round as they scroll into view */
+    if (!reduce) {
+      if (entrance === 'hero') { s.y = s.target = -140; }
+      if (entrance === 'scroll') { s.y = s.target = -75; }
+    }
+
+    var self = this;
+
+    function markUsed() { root.classList.add('used'); }
+
+    stage.addEventListener('pointerdown', function (e) {
+      if (e.pointerType === 'mouse' && e.button !== 0) return;
+      s.drag = true; s.coast = false; s.vy = 0; s.lastX = e.clientX;
+      stage.classList.add('dragging');
+      markUsed();
+      try { stage.setPointerCapture(e.pointerId); } catch (_) {}
+    });
+
+    stage.addEventListener('pointermove', function (e) {
+      if (s.drag) {
+        var d = (e.clientX - s.lastX) * 0.5;
+        s.lastX = e.clientX;
+        s.target += d; s.y = s.target;
+        s.vy = s.vy * 0.6 + d * 0.4;
+      } else if (e.pointerType === 'mouse') {
+        var r = stage.getBoundingClientRect();
+        var nx = (e.clientX - r.left) / r.width - 0.5;
+        var ny = (e.clientY - r.top) / r.height - 0.5;
+        s.ttx = -ny * 9; s.tty = nx * 10; s.hover = true;
+      }
+    });
+
+    function release() {
+      if (!s.drag) return;
+      s.drag = false; s.coast = true;
+      stage.classList.remove('dragging');
+    }
+    stage.addEventListener('pointerup', release);
+    stage.addEventListener('pointercancel', release);
+    stage.addEventListener('pointerleave', function () { s.ttx = 0; s.tty = 0; s.hover = false; });
+
+    function flip() {
+      markUsed();
+      s.vy = 0; s.coast = false;
+      s.target = (Math.round(s.target / 180) + 1) * 180;
+    }
+    this.flip = flip;
+    if (flipBtn) flipBtn.addEventListener('click', flip);
+    stage.addEventListener('dblclick', flip);
+    stage.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter' || e.key === ' ' || e.key === 'ArrowLeft' || e.key === 'ArrowRight') {
+        e.preventDefault(); flip();
+      }
+    });
+
+    /* a full turn to show off a newly picked color */
+    this.spin = function () {
+      s.vy = 0; s.coast = false;
+      s.target = Math.round(s.target / 180) * 180 + 360;
+    };
+
+    this.update = function (dt) {
+      s.t += dt;
+      if (!s.drag) {
+        if (s.coast) {
+          s.target += s.vy; s.vy *= 0.93;
+          if (Math.abs(s.vy) < 0.25) {            // settle on the nearest face
+            s.coast = false;
+            s.target = Math.round(s.target / 180) * 180;
+          }
+        }
+        s.y += (s.target - s.y) * (s.coast ? 0.4 : 0.11);
+      }
+      s.tx += (s.ttx - s.tx) * 0.08;
+      s.ty += (s.tty - s.ty) * 0.08;
+
+      var idle = !(reduce || s.hover || s.drag);
+      var swayY = idle ? Math.sin(s.t * 0.9) * 4.5 : 0;
+      var swayX = idle ? Math.cos(s.t * 0.7) * 1.6 : 0;
+      var ry = s.y + s.ty + swayY;
+
+      obj.style.transform = 'rotateX(' + (s.tx + swayX).toFixed(2) + 'deg) rotateY(' + ry.toFixed(2) + 'deg)';
+
+      var edge = Math.abs(Math.sin(ry * RAD));
+      obj.style.setProperty('--shade', (edge * 0.5).toFixed(3));
+      obj.style.setProperty('--sx', (50 + Math.sin(ry * RAD + 0.6) * 70).toFixed(1) + '%');
+      if (floor) {
+        floor.style.transform = 'scaleX(' + (1 - 0.45 * edge).toFixed(3) + ')';
+        floor.style.opacity = (0.9 - 0.4 * edge).toFixed(3);
+      }
+    };
+
+    /* only animate what's on screen */
+    if ('IntersectionObserver' in window) {
+      new IntersectionObserver(function (entries) {
+        entries.forEach(function (en) {
+          s.visible = en.isIntersecting;
+          if (en.isIntersecting && !s.entered) {
+            s.entered = true;
+            if (entrance === 'hero') { setTimeout(function () { s.target = 0; }, 650); }
+            else if (entrance === 'scroll') { s.target = 0; }
+          }
+        });
+      }, { threshold: 0.3 }).observe(root);
+    } else {
+      s.visible = true; s.entered = true; s.target = 0;
+    }
+
+    root._viewer = this;
+    viewers.push(this);
+  }
+
+  document.querySelectorAll('[data-viewer]').forEach(function (el) { new Viewer(el); });
+
+  var last = performance.now();
+  function frame(now) {
+    var dt = Math.min(0.05, (now - last) / 1000);
+    last = now;
+    for (var i = 0; i < viewers.length; i++) {
+      if (viewers[i].s.visible) viewers[i].update(dt);
+    }
+    requestAnimationFrame(frame);
+  }
+  requestAnimationFrame(frame);
+
+  /* ───────── color swatches: swap photos, label, checkout link ───────── */
+  document.addEventListener('click', function (e) {
+    var dot = e.target.closest ? e.target.closest('.color-dot') : null;
+    if (!dot) return;
+    var card = dot.closest('[data-product]');
+    if (!card) return;
+    var id = card.getAttribute('data-product');
+    var name = card.getAttribute('data-name');
+    var color = dot.getAttribute('data-color');
+
+    card.querySelectorAll('.color-dot').forEach(function (d) {
+      d.classList.remove('active'); d.setAttribute('aria-pressed', 'false');
+    });
+    dot.classList.add('active'); dot.setAttribute('aria-pressed', 'true');
+
+    var f = document.getElementById(id + '-front');
+    var b = document.getElementById(id + '-back');
+    f.src = dot.getAttribute('data-front'); f.alt = name + ' in ' + color + ', front';
+    b.src = dot.getAttribute('data-back');  b.alt = name + ' in ' + color + ', back';
+    document.getElementById(id + '-color').textContent = color;
+    document.getElementById(id + '-buy').href = dot.getAttribute('data-link');
+
+    var vEl = card.querySelector('.viewer');
+    if (vEl && vEl._viewer && !reduce) vEl._viewer.spin();
+  });
+
+  /* warm the cache so color swaps don't flicker */
+  window.addEventListener('load', function () {
+    document.querySelectorAll('.color-dot').forEach(function (d) {
+      new Image().src = d.getAttribute('data-front');
+      new Image().src = d.getAttribute('data-back');
+    });
+  });
+
+  /* ───────── scroll: nav, parallax, reveals ───────── */
+  var nav = document.getElementById('nav');
+  var hero = document.getElementById('home');
+  var heroCross = hero.querySelector('.hero-cross');
+  var heroStage = hero.querySelector('.hero-stage');
+  var ticking = false;
+
+  function onScroll() {
+    if (ticking) return;
+    ticking = true;
+    requestAnimationFrame(function () {
+      var y = window.scrollY;
+      nav.classList.toggle('scrolled', y > 40);
+      if (!reduce && y < window.innerHeight * 1.3) {
+        heroCross.style.transform = 'translateY(calc(-50% + ' + (y * 0.18).toFixed(1) + 'px))';
+        heroStage.style.transform = 'translateY(' + (y * -0.06).toFixed(1) + 'px)';
+      }
+      ticking = false;
+    });
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  /* soft light that follows the cursor across the hero */
+  if (!reduce && window.matchMedia('(pointer: fine)').matches) {
+    hero.addEventListener('pointermove', function (e) {
+      var r = hero.getBoundingClientRect();
+      hero.style.setProperty('--mx', (e.clientX - r.left) + 'px');
+      hero.style.setProperty('--my', (e.clientY - r.top) + 'px');
+    });
+  }
+
+  /* reveal headings + product details as they arrive */
+  var revealTargets = document.querySelectorAll('.reveal, .showcase');
+  if ('IntersectionObserver' in window) {
+    var ro = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (en.isIntersecting) { en.target.classList.add('in'); ro.unobserve(en.target); }
+      });
+    }, { threshold: 0.2 });
+    revealTargets.forEach(function (el) { ro.observe(el); });
+  } else {
+    revealTargets.forEach(function (el) { el.classList.add('in'); });
+  }
+})();
+
+</script>
+</body>
+</html>
