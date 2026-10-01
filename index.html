@@ -2665,5 +2665,94 @@ SVG only:`
 })();
 
 </script>
+<script>
+/* CHOSEN: optional website advertising measurement. Purchases come from Stripe. */
+(function () {
+  'use strict';
+  var pixel = '1405018345108982';
+  var key = 'chosen-advertising-consent-v1';
+  var active = false;
+  var initialized = false;
+  var pageSent = false;
+  var consent;
+  try { consent = JSON.parse(localStorage.getItem(key)); } catch (_) {}
+  var allowed = consent && consent.allowed === true && consent.expires > Date.now();
+  var decided = consent && consent.expires > Date.now();
+  var privacySignal = navigator.globalPrivacyControl === true;
+
+  function start() {
+    if (privacySignal || active) return;
+    active = true;
+    if (!initialized) {
+      initialized = true;
+      !function(f,b,e,v,n,t,s) {
+        if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+        n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;
+        s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s);
+      }(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+      // Do not scrape page fields or send customer details from forms.
+      window.fbq('set', 'autoConfig', false, pixel);
+      window.fbq('init', pixel);
+    }
+    window.fbq('consent', 'grant');
+    if (!pageSent) {
+      window.fbq('trackSingle', pixel, 'PageView');
+      pageSent = true;
+    }
+  }
+
+  function choose(value) {
+    active = false;
+    if (value && !privacySignal) start();
+    else if (window.fbq) window.fbq('consent', 'revoke');
+    try {
+      localStorage.setItem(key, JSON.stringify({allowed: !!value && !privacySignal,
+        expires: Date.now() + 180 * 86400000}));
+    } catch (_) {}
+    panel.hidden = true;
+    settings.focus();
+  }
+
+  var panel = document.createElement('section');
+  panel.id = 'chosen-cookie-choice';
+  panel.setAttribute('aria-label', 'Advertising cookies');
+  panel.style.cssText = 'position:fixed;bottom:16px;left:16px;right:16px;max-width:540px;background:#1e1710;color:#faf8f4;border:1px solid #b8892a;padding:20px;z-index:1000;font:15px/1.55 Arial,sans-serif;box-shadow:0 8px 32px #0008';
+  var explanation = document.createElement('p');
+  explanation.textContent = privacySignal
+    ? 'Your browser privacy preference is enabled. Optional Meta advertising cookies are off.'
+    : 'Allow Meta advertising cookies? They share website visits, checkout clicks and browser identifiers with Meta to measure our Facebook and Instagram ads. You can shop either way and change this choice below.';
+  panel.appendChild(explanation);
+  function button(label, callback) {
+    var el = document.createElement('button');
+    el.type = 'button'; el.textContent = label;
+    el.style.cssText = 'margin:12px 10px 0 0;padding:10px 16px;border:1px solid #b8892a;background:#1e1710;color:#faf8f4;font:600 14px Arial,sans-serif;cursor:pointer';
+    el.addEventListener('click', callback); panel.appendChild(el);
+    return el;
+  }
+  var decline = button(privacySignal ? 'Close' : 'Decline', function () { choose(false); });
+  if (!privacySignal) button('Allow', function () { choose(true); });
+  var settings = document.createElement('button');
+  settings.type = 'button'; settings.textContent = 'Advertising cookie settings';
+  settings.style.cssText = 'background:transparent;border:0;color:#c4bdb4;text-decoration:underline;cursor:pointer;padding:12px;font:13px Arial,sans-serif';
+  settings.addEventListener('click', function () { panel.hidden = false; decline.focus(); });
+  (document.querySelector('footer') || document.body).appendChild(settings);
+  document.body.appendChild(panel);
+  panel.hidden = !!decided || privacySignal;
+  if (allowed) start();
+
+  document.addEventListener('click', function (event) {
+    var target = event.target.closest ? event.target.closest('a.buy-now-btn') : null;
+    if (!active || !target) return;
+    // A click is a checkout start, never a completed purchase. No product names or verses.
+    try {
+      if (new URL(target.href).hostname !== 'buy.stripe.com') return;
+      window.fbq('trackSingle', pixel, 'InitiateCheckout');
+    } catch (_) {}
+  });
+})();
+
+</script>
 </body>
 </html>
