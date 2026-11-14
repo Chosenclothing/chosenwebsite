@@ -2830,8 +2830,26 @@ SVG only:`
       }, { threshold: 0.4 }).observe(el);
     });
   }
+  // Buyers come back here from Stripe after paying: tell them it worked.
+  function thankYou(name) {
+    var bar = document.createElement('div');
+    bar.setAttribute('role', 'status');
+    bar.style.cssText = 'position:fixed;left:50%;top:84px;transform:translateX(-50%);z-index:9999;max-width:calc(100% - 32px);' +
+      'background:#1a1714;color:#f5efe6;border:1px solid #b8892a;border-radius:10px;padding:14px 44px 14px 18px;' +
+      "font:500 15px/1.45 'Barlow',sans-serif;box-shadow:0 10px 30px rgba(0,0,0,.45)";
+    bar.innerHTML = '<strong style="color:#d4a94a">Thank you for your order!</strong><br>Your payment for the ' +
+      name.replace(/[<>&]/g, '') + ' went through. We will get it ready and ship it to you.';
+    var x = document.createElement('button');
+    x.type = 'button'; x.setAttribute('aria-label', 'Close'); x.textContent = '\u00d7';
+    x.style.cssText = 'position:absolute;right:10px;top:8px;background:none;border:0;color:#f5efe6;font-size:22px;cursor:pointer';
+    x.onclick = function () { bar.remove(); };
+    bar.appendChild(x);
+    document.body.appendChild(bar);
+    try { history.replaceState(null, '', location.pathname); } catch (e) {}
+  }
   // After paying, Stripe can send buyers back to chosen's site with ?paid=<design>. Count it once.
   var paid = new URLSearchParams(location.search).get('paid');
+  if (paid && PRODUCTS[paid]) thankYou(PRODUCTS[paid].name);
   if (paid && PRODUCTS[paid]) {
     var key = 'chosen-paid-' + (new URLSearchParams(location.search).get('session') || Date.now());
     try { if (sessionStorage.getItem(key)) return; sessionStorage.setItem(key, '1'); } catch (e) {}
