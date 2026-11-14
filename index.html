@@ -1666,6 +1666,18 @@
   /* studio photos only exist for the black garments */
   .viewer.gallery-off .gal-arrow, .viewer.gallery-off .gal-dots { opacity: 0; visibility: hidden; pointer-events: none; }
 </style>
+<!-- Meta Pixel (dataset 1405018345108982, Chosen Clothing Ads) -->
+<script>
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+document,'script','https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1405018345108982');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none" alt="" src="https://www.facebook.com/tr?id=1405018345108982&ev=PageView&noscript=1"/></noscript>
+<!-- End Meta Pixel -->
 </head>
 <body>
 
@@ -2770,6 +2782,64 @@ SVG only:`
   }
 })();
 
+</script>
+<!-- Meta Pixel shopping events: which designs people look at and click Buy on -->
+<script>
+(function () {
+  if (!window.fbq) return;
+  var PRODUCTS = {
+    'psalm-tee':    { name: 'Psalm 23:4 Tee',                 price: 45, section: 'collection' },
+    'psalm-hoodie': { name: 'Psalm 23:4 Hoodie',              price: 60, section: null },
+    'fom-tee':      { name: 'Fishers of Men Tee',             price: 45, section: 'fishers' },
+    'king-jesus':   { name: 'King Jesus Tee',                 price: 45, section: 'king-jesus-collection' },
+    'child-of-god': { name: 'Child of God Tee',               price: 45, section: 'child-of-god-collection' },
+    'amatb':        { name: 'Ask Me About The Bible Tee',     price: 45, section: 'amatb-collection' }
+  };
+  function details(id) {
+    var p = PRODUCTS[id], color = document.getElementById(id + '-color');
+    var c = color ? color.textContent.trim() : '';
+    return { content_name: p.name + (c ? ' - ' + c : ''), content_ids: [id], content_type: 'product',
+             value: p.price, currency: 'USD' };
+  }
+  // Clicking Buy now opens Stripe checkout: tell Meta which shirt and color.
+  Object.keys(PRODUCTS).forEach(function (id) {
+    var btn = document.getElementById(id + '-buy');
+    if (btn) btn.addEventListener('click', function () {
+      var d = details(id);
+      fbq('track', 'AddToCart', d);
+      fbq('track', 'InitiateCheckout', { content_ids: d.content_ids, content_name: d.content_name,
+                                          value: d.value, currency: 'USD', num_items: 1 });
+    });
+  });
+  // Seeing a design's photo for 2 seconds counts as viewing it (once per visit).
+  if ('IntersectionObserver' in window) {
+    var seen = {};
+    Object.keys(PRODUCTS).forEach(function (id) {
+      var sec = PRODUCTS[id].section && document.getElementById(PRODUCTS[id].section);
+      var btn = document.getElementById(id + '-buy');
+      var img = document.getElementById(id + '-front');
+      var el = (img && img.closest('[data-viewer]')) || img || sec || btn;   // the spinning shirt card
+      if (!el) return;
+      var timer = null;
+      new IntersectionObserver(function (entries) {
+        entries.forEach(function (en) {
+          if (en.isIntersecting && !seen[id]) {
+            timer = setTimeout(function () { seen[id] = true; fbq('track', 'ViewContent', details(id)); }, 2000);
+          } else if (timer) { clearTimeout(timer); timer = null; }
+        });
+      }, { threshold: 0.4 }).observe(el);
+    });
+  }
+  // After paying, Stripe can send buyers back to chosen's site with ?paid=<design>. Count it once.
+  var paid = new URLSearchParams(location.search).get('paid');
+  if (paid && PRODUCTS[paid]) {
+    var key = 'chosen-paid-' + (new URLSearchParams(location.search).get('session') || Date.now());
+    try { if (sessionStorage.getItem(key)) return; sessionStorage.setItem(key, '1'); } catch (e) {}
+    var d = details(paid);
+    fbq('track', 'Purchase', { content_ids: d.content_ids, content_name: PRODUCTS[paid].name, content_type: 'product',
+                               value: PRODUCTS[paid].price, currency: 'USD', num_items: 1 });
+  }
+})();
 </script>
 </body>
 </html>
